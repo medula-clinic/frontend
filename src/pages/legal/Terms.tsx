@@ -1,15 +1,17 @@
 import { useCallback, useEffect } from "react";
-import landingHtml from "@/landing/index.html?raw";
+import termsHtml from "@/landing/terms.html?raw";
 import { useLandingAssets } from "@/hooks/useLandingAssets";
 import { useStaticHtml } from "@/hooks/useStaticHtml";
 import { initLandingInteractions } from "@/utils/landingInteractions";
+import { useBodyClass } from "@/hooks/useBodyClass";
 
-const Index = () => {
+const Terms = () => {
   useLandingAssets();
+  useBodyClass(["terms-page"]);
 
   useEffect(() => {
     const previousTitle = document.title;
-    document.title = "Medula – All-in-One Clinic Management & EHR Software";
+    document.title = "Medula – Terms of Service";
     return () => {
       document.title = previousTitle;
     };
@@ -19,9 +21,9 @@ const Index = () => {
     return initLandingInteractions(root);
   }, []);
 
-  const containerRef = useStaticHtml(landingHtml, handleReady);
+  const containerRef = useStaticHtml(termsHtml, handleReady);
 
-  return <div ref={containerRef} className="landing-page" />;
+  return <div ref={containerRef} className="landing-legal-page" />;
 };
 
-export default Index;
+export default Terms;

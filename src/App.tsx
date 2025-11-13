@@ -63,6 +63,8 @@ import Clinics from "./pages/dashboard/clinics/Clinics";
 import Permissions from "./pages/dashboard/permissions/Permissions";
 import PatientDashboard from "./pages/dashboard/patient/PatientDashboard";
 import NotFound from "./pages/NotFound";
+import Privacy from "./pages/legal/Privacy";
+import Terms from "./pages/legal/Terms";
 
 // Payment Pages
 import PaymentSuccess from "./pages/payments/PaymentSuccess";
@@ -127,6 +129,8 @@ const App = () => {
             {/* Public routes */}
             <Route path="/" element={<Index />} />
             <Route path="/features" element={<Features />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/terms" element={<Terms />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
