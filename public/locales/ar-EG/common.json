@@ -1,5 +1,5 @@
 {
-  "ClinicPro": "كلينيك برو",
+  "ClinicPro": "Medula",
   "Features": "الميزات",
   "Testimonials": "الشهادات",
   "Modules": "الوحدات",
@@ -24,7 +24,6 @@
   "Contact our support team": "تواصل مع فريق الدعم",
   "Request a Demo": "طلب عرض",
   "Request Demo": "اطلب عرضًا",
-
   "Dashboard": "لوحة التحكم",
   "Dental AI X-ray Analysis": "تحليل الأشعة السينية بالذكاء الاصطناعي",
   "Patients": "المرضى",
@@ -50,7 +49,6 @@
   "Lab Vendors": "مزودو المختبرات",
   "Calendar": "التقويم",
   "Reports": "التقارير",
-
   "Overview": "نظرة عامة",
   "Patient Management": "إدارة المرضى",
   "Financial Management": "الإدارة المالية",
@@ -67,13 +65,11 @@
   "Basic Billing": "فواتير أساسية",
   "Full Access": "وصول كامل",
   "Administrator": "المسؤول",
-
   "Profile": "الملف الشخصي",
   "Log out": "تسجيل الخروج",
   "Currency:": "العملة:",
-
   "Welcome back": "مرحبًا بعودتك",
-  "Sign in to your ClinicPro account to continue": "سجّل الدخول إلى حسابك في كلينيك برو للمتابعة",
+  "Sign in to your Medula account to continue": "سجّل الدخول إلى حسابك في كلينيك برو للمتابعة",
   "Email": "البريد الإلكتروني",
   "Enter your email": "أدخل بريدك الإلكتروني",
   "Password": "كلمة المرور",
@@ -91,7 +87,6 @@
   "Please run the database seeder to create demo users": "يرجى تشغيل مُهيّئ قاعدة البيانات لإنشاء مستخدمي العرض",
   "Refresh": "تحديث",
   "← Back to homepage": "← العودة إلى الصفحة الرئيسية",
-
   "Search": "بحث",
   "Filters": "فلاتر",
   "Apply Filters": "تطبيق الفلاتر",
@@ -127,7 +122,6 @@
   "No": "لا",
   "Confirm": "تأكيد",
   "Are you sure?": "هل أنت متأكد؟",
-
   "Admin Dashboard": "لوحة تحكم المسؤول",
   "Complete overview of your clinic operations and system health.": "نظرة عامة كاملة على عمليات العيادة وصحة النظام.",
   "Revenue Overview": "نظرة عامة على الإيرادات",
@@ -153,52 +147,41 @@
   "Weekly Revenue": "الإيرادات الأسبوعية",
   "6 Departments": "6 أقسام",
   "Active with 47 staff members": "نشط مع 47 من أعضاء الطاقم",
-
   "Add Patient": "إضافة مريض",
   "Edit Patient": "تعديل المريض",
   "Patient Details": "تفاصيل المريض",
-
   "New Appointment": "موعد جديد",
   "Edit Appointment": "تعديل الموعد",
   "Appointment Details": "تفاصيل الموعد",
   "Reschedule": "إعادة الجدولة",
   "Mark as Completed": "وضع علامة كمكتمل",
   "Cancel Appointment": "إلغاء الموعد",
-
   "Convert to Patient": "تحويل إلى مريض",
-
   "Create Invoice": "إنشاء فاتورة",
   "Edit Invoice": "تعديل الفاتورة",
   "View Invoice": "عرض الفاتورة",
   "Mark as Paid": "وضع علامة كمدفوع",
-
   "Record Payment": "تسجيل الدفع",
   "Edit Payment": "تعديل الدفع",
   "Refund Payment": "استرداد الدفع",
-
   "Create Payroll": "إنشاء كشف رواتب",
   "Edit Payroll": "تعديل كشف الرواتب",
   "Process Payment": "معالجة الدفع",
-
   "Add Expense": "إضافة مصروف",
   "Edit Expense": "تعديل المصروف",
   "View Expense": "عرض المصروف",
   "Delete Expense": "حذف المصروف",
-
   "Add Service": "إضافة خدمة",
   "Edit Service": "تعديل الخدمة",
   "View Service": "عرض الخدمة",
   "Activate Service": "تفعيل الخدمة",
   "Deactivate Service": "تعطيل الخدمة",
-
   "Add Department": "إضافة قسم",
   "Edit Department": "تعديل القسم",
   "View Department": "عرض القسم",
-
   "Add Clinic": "إضافة عيادة",
   "Edit Clinic": "تعديل العيادة",
   "View Clinic": "عرض العيادة",
-
   "Add Item": "إضافة عنصر",
   "Edit Item": "تعديل العنصر",
   "View Item": "عرض العنصر",
@@ -206,54 +189,42 @@
   "Out of Stock": "غير متوفر",
   "In Stock": "متوفر",
   "Stock": "المخزون",
-
   "Add Staff": "إضافة موظف",
   "Edit Staff": "تعديل الموظف",
   "Manage Schedule": "إدارة الجدول",
   "Update Salary": "تحديث الراتب",
   "View Profile": "عرض الملف الشخصي",
-
   "View Vendor": "عرض المورد",
   "Edit Vendor": "تعديل المورد",
   "Contract Details": "تفاصيل العقد",
   "Billing & Payments": "الفوترة والمدفوعات",
   "Test History": "سجل الاختبارات",
-
   "Manage Permissions": "إدارة الصلاحيات",
   "Save Changes": "حفظ التغييرات",
-
   "Add Test": "إضافة اختبار",
   "Edit Test": "تعديل الاختبار",
   "View Test": "عرض الاختبار",
   "Record Test Report": "تسجيل تقرير الاختبار",
   "Edit Test Report": "تعديل تقرير الاختبار",
-
   "Analytics": "التحليلات",
   "Generate Report": "إنشاء تقرير",
-
   "Today": "اليوم",
   "Previous": "السابق",
   "Next": "التالي",
-
   "New Odontogram": "مخطط أسنان جديد",
   "View History": "عرض السجل",
   "Set Active": "تعيين نشط",
-
   "New Prescription": "وصفة جديدة",
   "Edit Prescription": "تعديل الوصفة",
   "Print Prescription": "طباعة الوصفة",
   "Send to Pharmacy": "إرسال إلى الصيدلية",
-
   "Edit Profile": "تعديل الملف الشخصي",
   "Change Password": "تغيير كلمة المرور",
-
   "Settings": "الإعدادات",
-
   "Analyze X-ray": "تحليل الأشعة السينية",
   "Upload X-ray": "رفع الأشعة السينية",
   "Download Report": "تنزيل التقرير",
   "Delete Analysis": "حذف التحليل",
-
   "Completed": "مكتمل",
   "Scheduled": "مجدول",
   "Cancelled": "ملغي",
@@ -270,7 +241,6 @@
   "High": "عالي",
   "Medium": "متوسط",
   "Low": "منخفض",
-
   "Upload dental X-rays and get AI-powered analysis reports": "ارفع أشعة الأسنان واحصل على تقارير تحليل بالذكاء الاصطناعي",
   "Invalid file type": "نوع ملف غير صالح",
   "Please select a JPEG, JPG, or PNG image.": "يرجى اختيار صورة JPEG أو JPG أو PNG.",
@@ -333,7 +303,6 @@
   "Leave empty to use default comprehensive analysis": "اتركه فارغاً لاستخدام التحليل الشامل الافتراضي",
   "This may take several minutes. Please don't close the browser.": "قد يستغرق هذا عدة دقائق. يرجى عدم إغلاق المتصفح.",
   "Analyzing X-ray...": "جارٍ تحليل الأشعة السينية...",
-  "Analyze X-ray": "تحليل الأشعة السينية",
   "AI-generated analysis for": "تحليل مُولَّد بالذكاء الاصطناعي لـ",
   "Detailed Analysis": "تحليل مفصل",
   "Cavities Detected": "تم اكتشاف تسوس",
@@ -357,19 +326,16 @@
   "Patient Information": "معلومات المريض",
   "Analysis Details": "تفاصيل التحليل",
   "Doctor": "الطبيب",
-
   "Analysis History": "تاريخ التحليلات",
   "AI Test Report Analysis": "تحليل تقارير الفحوصات بالذكاء الاصطناعي",
   "Upload test reports and get AI-powered analysis and interpretation": "ارفع تقارير الفحوصات واحصل على تحليل وتفسير بالذكاء الاصطناعي",
   "Please select a JPEG, PNG image or PDF file.": "يرجى اختيار صورة JPEG أو PNG أو ملف PDF.",
   "Please select a file under 15MB.": "يرجى اختيار ملف أقل من 15 ميجابايت.",
   "Please select both a test report file and a patient.": "يرجى اختيار كل من ملف تقرير الفحص ومريض.",
-  "Preparing upload...": "جارٍ التحضير للرفع...",
   "Uploading test report...": "جارٍ رفع تقرير الفحص...",
   "Processing with AI...": "جارٍ المعالجة بالذكاء الاصطناعي...",
   "Analyzing test values...": "جارٍ تحليل قيم الفحص...",
   "Interpreting results...": "جارٍ تفسير النتائج...",
-  "Generating report...": "جارٍ إنشاء التقرير...",
   "Your test report has been successfully analyzed.": "تم تحليل تقرير الفحص بنجاح.",
   "There was an error analyzing the test report. Please try again.": "حدث خطأ في تحليل تقرير الفحص. يرجى المحاولة مرة أخرى.",
   "Error loading data": "خطأ في تحميل البيانات",
@@ -396,7 +362,6 @@
   "Key Findings": "النتائج الرئيسية",
   "View Report": "عرض التقرير",
   "No AI test analyses found": "لم يتم العثور على تحليلات فحوصات بالذكاء الاصطناعي",
-  "Detailed analysis report for": "تقرير تحليل مفصل لـ",
   "test report": "تقرير الفحص",
   "Analysis Information": "معلومات التحليل",
   "File Type": "نوع الملف",
@@ -404,7 +369,6 @@
   "This action cannot be undone. This will permanently delete the AI test analysis.": "لا يمكن التراجع عن هذا الإجراء. سيؤدي هذا إلى حذف تحليل الفحص بالذكاء الاصطناعي نهائياً.",
   "No data": "لا توجد بيانات",
   "Top Test Type": "نوع الفحص الأعلى",
-
   "Leads & CRM": "العملاء المحتملون وإدارة العلاقات",
   "Manage potential patients and track conversions": "إدارة المرضى المحتملين وتتبع التحويلات",
   "Total Leads": "إجمالي العملاء المحتملين",
@@ -460,7 +424,6 @@
   "New": "جديد",
   "Contacted": "تم التواصل",
   "Lost": "ضائع",
-
   "Add New Lead": "إضافة عميل محتمل جديد",
   "Capture information about potential patients and track them through the conversion process.": "جمع معلومات المرضى المحتملين وتتبعهم خلال عملية التحويل.",
   "Contact Information": "معلومات الاتصال",
@@ -535,4 +498,3 @@
   "Lead converted successfully": "تم تحويل العميل المحتمل بنجاح",
   "has been converted to a patient.": "تم تحويله إلى مريض."
 }
-

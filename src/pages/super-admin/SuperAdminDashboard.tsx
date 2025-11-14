@@ -56,7 +56,7 @@ const SuperAdminDashboard = () => {
             </h1>
           </div>
           <p className="text-slate-600 mt-1">
-            Manage and monitor the entire ClinicPro platform
+            Manage and monitor the entire Medula platform
           </p>
         </div>
         <Badge className="bg-green-100 text-green-800 border-green-200">

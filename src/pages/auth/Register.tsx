@@ -225,7 +225,7 @@ const Register = () => {
               Create your account
             </CardTitle>
             <CardDescription>
-              Join ClinicPro and start managing your clinic today
+              Join Medula and start managing your clinic today
             </CardDescription>
           </CardHeader>
           <CardContent>

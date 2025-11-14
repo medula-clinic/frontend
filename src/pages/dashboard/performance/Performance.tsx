@@ -671,7 +671,7 @@ const Performance = () => {
                           <SelectContent>
                             {Array.from({ length: 12 }, (_, i) => i + 1).map((month) => (
                               <SelectItem key={month} value={month.toString()}>
-                                {format(new Date(2024, month - 1, 1), 'MMMM')}
+                                {format(new Date(2025, month - 1, 1), 'MMMM')}
                               </SelectItem>
                             ))}
                           </SelectContent>

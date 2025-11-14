@@ -1,6 +1,5 @@
 {
-  "ClinicPro": "ClinicPro",
-
+  "ClinicPro": "Medula",
   "Features": "Tính năng",
   "Testimonials": "Lời chứng thực",
   "Modules": "Mô-đun",
@@ -25,7 +24,6 @@
   "Contact our support team": "Liên hệ đội hỗ trợ",
   "Request a Demo": "Yêu cầu bản demo",
   "Request Demo": "Yêu cầu demo",
-
   "Dashboard": "Bảng điều khiển",
   "Dental AI X-ray Analysis": "Phân tích X-quang bằng AI",
   "Patients": "Bệnh nhân",
@@ -51,7 +49,6 @@
   "Lab Vendors": "Đối tác xét nghiệm",
   "Calendar": "Lịch",
   "Reports": "Báo cáo",
-
   "Overview": "Tổng quan",
   "Patient Management": "Quản lý bệnh nhân",
   "Financial Management": "Quản lý tài chính",
@@ -68,13 +65,11 @@
   "Basic Billing": "Hóa đơn cơ bản",
   "Full Access": "Toàn quyền",
   "Administrator": "Quản trị viên",
-
   "Profile": "Hồ sơ",
   "Log out": "Đăng xuất",
   "Currency:": "Tiền tệ:",
-
   "Welcome back": "Chào mừng trở lại",
-  "Sign in to your ClinicPro account to continue": "Đăng nhập tài khoản ClinicPro để tiếp tục",
+  "Sign in to your Medula account to continue": "Đăng nhập tài khoản Medula để tiếp tục",
   "Email": "Email",
   "Enter your email": "Nhập email của bạn",
   "Password": "Mật khẩu",
@@ -92,7 +87,6 @@
   "Please run the database seeder to create demo users": "Vui lòng chạy seeder để tạo người dùng demo",
   "Refresh": "Làm mới",
   "← Back to homepage": "← Quay lại trang chủ",
-
   "Search": "Tìm kiếm",
   "Filters": "Bộ lọc",
   "Apply Filters": "Áp dụng bộ lọc",
@@ -128,12 +122,10 @@
   "No": "Không",
   "Confirm": "Xác nhận",
   "Are you sure?": "Bạn có chắc không?",
-
   "Admin Dashboard": "Bảng điều khiển quản trị",
   "Complete overview of your clinic operations and system health.": "Tổng quan đầy đủ về hoạt động và tình trạng hệ thống của phòng khám.",
   "Revenue Overview": "Tổng quan doanh thu",
   "Monthly revenue vs expenses": "Doanh thu so với chi phí hàng tháng",
-  
   "Appointment Status": "Trạng thái cuộc hẹn",
   "Distribution of appointment statuses": "Phân bố trạng thái cuộc hẹn",
   "Recent Appointments": "Cuộc hẹn gần đây",
@@ -155,52 +147,41 @@
   "Weekly Revenue": "Doanh thu tuần",
   "6 Departments": "6 khoa/phòng",
   "Active with 47 staff members": "Hoạt động với 47 nhân sự",
-
   "Add Patient": "Thêm bệnh nhân",
   "Edit Patient": "Sửa bệnh nhân",
   "Patient Details": "Chi tiết bệnh nhân",
-
   "New Appointment": "Cuộc hẹn mới",
   "Edit Appointment": "Sửa cuộc hẹn",
   "Appointment Details": "Chi tiết cuộc hẹn",
   "Reschedule": "Đặt lại lịch",
   "Mark as Completed": "Đánh dấu hoàn thành",
   "Cancel Appointment": "Hủy cuộc hẹn",
-
   "Convert to Patient": "Chuyển thành bệnh nhân",
-
   "Create Invoice": "Tạo hóa đơn",
   "Edit Invoice": "Sửa hóa đơn",
   "View Invoice": "Xem hóa đơn",
   "Mark as Paid": "Đánh dấu đã thanh toán",
-
   "Record Payment": "Ghi nhận thanh toán",
   "Edit Payment": "Sửa thanh toán",
   "Refund Payment": "Hoàn tiền",
-
   "Create Payroll": "Tạo bảng lương",
   "Edit Payroll": "Sửa bảng lương",
   "Process Payment": "Xử lý thanh toán",
-
   "Add Expense": "Thêm chi phí",
   "Edit Expense": "Sửa chi phí",
   "View Expense": "Xem chi phí",
   "Delete Expense": "Xóa chi phí",
-
   "Add Service": "Thêm dịch vụ",
   "Edit Service": "Sửa dịch vụ",
   "View Service": "Xem dịch vụ",
   "Activate Service": "Kích hoạt dịch vụ",
   "Deactivate Service": "Tắt dịch vụ",
-
   "Add Department": "Thêm khoa/phòng",
   "Edit Department": "Sửa khoa/phòng",
   "View Department": "Xem khoa/phòng",
-
   "Add Clinic": "Thêm phòng khám",
   "Edit Clinic": "Sửa phòng khám",
   "View Clinic": "Xem phòng khám",
-
   "Add Item": "Thêm mặt hàng",
   "Edit Item": "Sửa mặt hàng",
   "View Item": "Xem mặt hàng",
@@ -208,55 +189,42 @@
   "Out of Stock": "Hết hàng",
   "In Stock": "Còn hàng",
   "Stock": "Tồn kho",
-
   "Add Staff": "Thêm nhân sự",
   "Edit Staff": "Sửa nhân sự",
   "Manage Schedule": "Quản lý lịch làm việc",
   "Update Salary": "Cập nhật lương",
   "View Profile": "Xem hồ sơ",
-
   "View Vendor": "Xem đối tác",
   "Edit Vendor": "Sửa đối tác",
   "Contract Details": "Chi tiết hợp đồng",
   "Billing & Payments": "Thanh toán & hóa đơn",
   "Test History": "Lịch sử xét nghiệm",
-
   "Manage Permissions": "Quản lý quyền",
   "Save Changes": "Lưu thay đổi",
-
   "Add Test": "Thêm xét nghiệm",
   "Edit Test": "Sửa xét nghiệm",
   "View Test": "Xem xét nghiệm",
   "Record Test Report": "Ghi nhận báo cáo xét nghiệm",
   "Edit Test Report": "Sửa báo cáo xét nghiệm",
-
   "Analytics": "Phân tích",
   "Generate Report": "Tạo báo cáo",
-  
-
   "Today": "Hôm nay",
   "Previous": "Trước",
   "Next": "Tiếp",
-
   "New Odontogram": "Sơ đồ răng mới",
   "View History": "Xem lịch sử",
   "Set Active": "Đặt là hoạt động",
-
   "New Prescription": "Đơn thuốc mới",
   "Edit Prescription": "Sửa đơn thuốc",
   "Print Prescription": "In đơn thuốc",
   "Send to Pharmacy": "Gửi đến nhà thuốc",
-
   "Edit Profile": "Sửa hồ sơ",
   "Change Password": "Đổi mật khẩu",
-
   "Settings": "Cài đặt",
-
   "Analyze X-ray": "Phân tích X-quang",
   "Upload X-ray": "Tải X-quang lên",
   "Download Report": "Tải báo cáo",
   "Delete Analysis": "Xóa phân tích",
-
   "Completed": "Hoàn thành",
   "Scheduled": "Đã lên lịch",
   "Cancelled": "Đã hủy",
@@ -273,7 +241,6 @@
   "High": "Cao",
   "Medium": "Trung bình",
   "Low": "Thấp",
-
   "Upload dental X-rays and get AI-powered analysis reports": "Tải lên X-quang nha khoa và nhận báo cáo phân tích bằng AI",
   "Invalid file type": "Loại tệp không hợp lệ",
   "Please select a JPEG, JPG, or PNG image.": "Vui lòng chọn hình ảnh JPEG, JPG hoặc PNG.",
@@ -336,7 +303,6 @@
   "Leave empty to use default comprehensive analysis": "Để trống để sử dụng phân tích toàn diện mặc định",
   "This may take several minutes. Please don't close the browser.": "Điều này có thể mất vài phút. Vui lòng không đóng trình duyệt.",
   "Analyzing X-ray...": "Đang phân tích X-quang...",
-  "Analyze X-ray": "Phân tích X-quang",
   "AI-generated analysis for": "Phân tích do AI tạo ra cho",
   "Detailed Analysis": "Phân tích chi tiết",
   "Cavities Detected": "Phát hiện sâu răng",
@@ -360,7 +326,5 @@
   "Patient Information": "Thông tin bệnh nhân",
   "Analysis Details": "Chi tiết phân tích",
   "Doctor": "Bác sĩ",
-
   "Analysis History": "Lịch sử Phân tích"
 }
-

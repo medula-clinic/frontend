@@ -367,7 +367,7 @@ const AddItemModal: React.FC<AddItemModalProps> = ({ trigger, onSuccess }) => {
                     onChange={(e) =>
                       handleChange("batchNumber", e.target.value)
                     }
-                    placeholder="e.g., PC2024001"
+                    placeholder="e.g., PC2025001"
                     className="flex-1"
                   />
                   <Button

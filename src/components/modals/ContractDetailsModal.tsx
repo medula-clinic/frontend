@@ -41,10 +41,10 @@ const ContractDetailsModal: React.FC<ContractDetailsModalProps> = ({
   const mockContract: ContractDetails = {
     id: "CON-001",
     vendorId: vendorId || "",
-    contractNumber: "LAB-CON-2024-001",
-    startDate: new Date("2024-01-01"),
-    endDate: new Date("2024-12-31"),
-    renewalDate: new Date("2024-11-01"),
+    contractNumber: "LAB-CON-2025-001",
+    startDate: new Date("2025-01-01"),
+    endDate: new Date("2025-12-31"),
+    renewalDate: new Date("2025-11-01"),
     status: "active",
     terms: "Standard laboratory services contract with guaranteed turnaround times and quality metrics. Vendor agrees to maintain CLIA and CAP accreditations throughout the contract period.",
     paymentTerms: "Net 30 days from invoice date. Early payment discount of 2% available for payments within 10 days.",
@@ -62,7 +62,7 @@ const ContractDetailsModal: React.FC<ContractDetailsModalProps> = ({
     autoRenewal: true,
     notificationDays: 60,
     createdAt: new Date("2023-11-01"),
-    updatedAt: new Date("2024-01-15"),
+    updatedAt: new Date("2025-01-15"),
   };
 
   useEffect(() => {

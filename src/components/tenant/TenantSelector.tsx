@@ -96,7 +96,7 @@ const TenantSelector: React.FC<TenantSelectorProps> = ({
               Select Your Organization
             </CardTitle>
             <CardDescription className="text-sm mt-2">
-              Choose your organization to access your ClinicPro workspace
+              Choose your organization to access your Medula workspace
             </CardDescription>
           </div>
           {!loading && (

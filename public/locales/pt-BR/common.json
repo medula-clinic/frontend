@@ -1,6 +1,5 @@
 {
-  "ClinicPro": "ClinicPro",
-
+  "ClinicPro": "Medula",
   "Features": "Recursos",
   "Testimonials": "Depoimentos",
   "Modules": "Módulos",
@@ -25,7 +24,6 @@
   "Contact our support team": "Entre em contato com o nosso suporte",
   "Request a Demo": "Solicitar demonstração",
   "Request Demo": "Solicitar demo",
-
   "Dashboard": "Painel",
   "Dental AI X-ray Analysis": "Análise de raio-X com IA",
   "Patients": "Pacientes",
@@ -51,7 +49,6 @@
   "Lab Vendors": "Laboratórios parceiros",
   "Calendar": "Calendário",
   "Reports": "Relatórios",
-
   "Overview": "Visão geral",
   "Patient Management": "Gestão de pacientes",
   "Financial Management": "Gestão financeira",
@@ -68,13 +65,11 @@
   "Basic Billing": "Faturamento básico",
   "Full Access": "Acesso total",
   "Administrator": "Administrador",
-
   "Profile": "Perfil",
   "Log out": "Sair",
   "Currency:": "Moeda:",
-
   "Welcome back": "Bem-vindo de volta",
-  "Sign in to your ClinicPro account to continue": "Entre na sua conta ClinicPro para continuar",
+  "Sign in to your Medula account to continue": "Entre na sua conta Medula para continuar",
   "Email": "E-mail",
   "Enter your email": "Digite seu e-mail",
   "Password": "Senha",
@@ -92,7 +87,6 @@
   "Please run the database seeder to create demo users": "Execute o seeder do banco de dados para criar usuários demo",
   "Refresh": "Atualizar",
   "← Back to homepage": "← Voltar para a página inicial",
-
   "Search": "Pesquisar",
   "Filters": "Filtros",
   "Apply Filters": "Aplicar filtros",
@@ -128,12 +122,10 @@
   "No": "Não",
   "Confirm": "Confirmar",
   "Are you sure?": "Tem certeza?",
-
   "Admin Dashboard": "Painel do administrador",
   "Complete overview of your clinic operations and system health.": "Visão completa das operações da clínica e da integridade do sistema.",
   "Revenue Overview": "Visão geral da receita",
   "Monthly revenue vs expenses": "Receita mensal vs despesas",
-  "View Details": "Ver detalhes",
   "Appointment Status": "Status das consultas",
   "Distribution of appointment statuses": "Distribuição dos status das consultas",
   "Recent Appointments": "Consultas recentes",
@@ -155,52 +147,41 @@
   "Weekly Revenue": "Receita semanal",
   "6 Departments": "6 departamentos",
   "Active with 47 staff members": "Ativo com 47 membros da equipe",
-
   "Add Patient": "Adicionar paciente",
   "Edit Patient": "Editar paciente",
   "Patient Details": "Detalhes do paciente",
-
   "New Appointment": "Nova consulta",
   "Edit Appointment": "Editar consulta",
   "Appointment Details": "Detalhes da consulta",
   "Reschedule": "Reagendar",
   "Mark as Completed": "Marcar como concluída",
   "Cancel Appointment": "Cancelar consulta",
-
   "Convert to Patient": "Converter em paciente",
-
   "Create Invoice": "Criar fatura",
   "Edit Invoice": "Editar fatura",
   "View Invoice": "Ver fatura",
   "Mark as Paid": "Marcar como paga",
-
   "Record Payment": "Registrar pagamento",
   "Edit Payment": "Editar pagamento",
   "Refund Payment": "Reembolsar pagamento",
-
   "Create Payroll": "Criar folha de pagamento",
   "Edit Payroll": "Editar folha de pagamento",
   "Process Payment": "Processar pagamento",
-
   "Add Expense": "Adicionar despesa",
   "Edit Expense": "Editar despesa",
   "View Expense": "Ver despesa",
   "Delete Expense": "Excluir despesa",
-
   "Add Service": "Adicionar serviço",
   "Edit Service": "Editar serviço",
   "View Service": "Ver serviço",
   "Activate Service": "Ativar serviço",
   "Deactivate Service": "Desativar serviço",
-
   "Add Department": "Adicionar departamento",
   "Edit Department": "Editar departamento",
   "View Department": "Ver departamento",
-
   "Add Clinic": "Adicionar clínica",
   "Edit Clinic": "Editar clínica",
   "View Clinic": "Ver clínica",
-
   "Add Item": "Adicionar item",
   "Edit Item": "Editar item",
   "View Item": "Ver item",
@@ -208,55 +189,42 @@
   "Out of Stock": "Sem estoque",
   "In Stock": "Com estoque",
   "Stock": "Estoque",
-
   "Add Staff": "Adicionar membro",
   "Edit Staff": "Editar membro",
   "Manage Schedule": "Gerenciar agenda",
   "Update Salary": "Atualizar salário",
   "View Profile": "Ver perfil",
-
   "View Vendor": "Ver parceiro",
   "Edit Vendor": "Editar parceiro",
   "Contract Details": "Detalhes do contrato",
   "Billing & Payments": "Faturamento e pagamentos",
   "Test History": "Histórico de exames",
-
   "Manage Permissions": "Gerenciar permissões",
   "Save Changes": "Salvar alterações",
-
   "Add Test": "Adicionar exame",
   "Edit Test": "Editar exame",
   "View Test": "Ver exame",
   "Record Test Report": "Registrar relatório de exame",
   "Edit Test Report": "Editar relatório de exame",
-
   "Analytics": "Análises",
   "Generate Report": "Gerar relatório",
   "Download Report": "Baixar relatório",
-
   "Today": "Hoje",
   "Previous": "Anterior",
   "Next": "Próximo",
-
   "New Odontogram": "Novo odontograma",
   "View History": "Ver histórico",
   "Set Active": "Definir como ativo",
-
   "New Prescription": "Nova prescrição",
   "Edit Prescription": "Editar prescrição",
   "Print Prescription": "Imprimir prescrição",
   "Send to Pharmacy": "Enviar para a farmácia",
-
   "Edit Profile": "Editar perfil",
   "Change Password": "Alterar senha",
-
   "Settings": "Configurações",
-
-  "Analyze X-ray": "Analisar raio-X",
+  "Analyze X-ray": "Analisar Raio-X",
   "Upload X-ray": "Enviar raio-X",
-  "Download Report": "Baixar relatório",
   "Delete Analysis": "Excluir análise",
-
   "Completed": "Concluída",
   "Scheduled": "Agendada",
   "Cancelled": "Cancelada",
@@ -273,7 +241,6 @@
   "High": "Alto",
   "Medium": "Médio",
   "Low": "Baixo",
-
   "Upload dental X-rays and get AI-powered analysis reports": "Carregue radiografias dentárias e obtenha relatórios de análise com IA",
   "Invalid file type": "Tipo de arquivo inválido",
   "Please select a JPEG, JPG, or PNG image.": "Por favor, selecione uma imagem JPEG, JPG ou PNG.",
@@ -336,7 +303,6 @@
   "Leave empty to use default comprehensive analysis": "Deixe vazio para usar análise abrangente padrão",
   "This may take several minutes. Please don't close the browser.": "Isso pode levar vários minutos. Por favor, não feche o navegador.",
   "Analyzing X-ray...": "Analisando raio-X...",
-  "Analyze X-ray": "Analisar Raio-X",
   "AI-generated analysis for": "Análise gerada por IA para",
   "Detailed Analysis": "Análise Detalhada",
   "Cavities Detected": "Cáries Detectadas",
@@ -360,7 +326,5 @@
   "Patient Information": "Informações do Paciente",
   "Analysis Details": "Detalhes da Análise",
   "Doctor": "Doutor",
-
   "Analysis History": "Histórico de Análises"
 }
-

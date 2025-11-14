@@ -547,7 +547,7 @@ const PublicAppointments: React.FC = () => {
 
         {/* Footer */}
         <div className="text-center mt-8 text-sm text-gray-500">
-          <p>ClinicPro - Patient Portal</p>
+          <p>Medula - Patient Portal</p>
           <p>If you have any questions about your appointments, please contact the clinic directly.</p>
         </div>
       </div>

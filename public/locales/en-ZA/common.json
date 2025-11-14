@@ -1,5 +1,5 @@
 {
-  "ClinicPro": "ClinicPro",
+  "ClinicPro": "Medula",
   "Features": "Features",
   "Testimonials": "Testimonials",
   "Modules": "Modules",
@@ -9,7 +9,6 @@
   "Free access": "Free access",
   "No credit card required": "No credit card required",
   "Full feature access": "Full feature access",
-
   "Dashboard": "Dashboard",
   "Patients": "Patients",
   "Appointments": "Appointments",
@@ -17,7 +16,6 @@
   "Payments": "Payments",
   "Inventory": "Inventory",
   "Reports": "Reports",
-
   "Search": "Search",
   "Filters": "Filters",
   "Apply Filters": "Apply Filters",
@@ -33,7 +31,6 @@
   "Close": "Close",
   "View": "View",
   "View Details": "View Details",
-
   "Dental AI X-ray Analysis": "Dental AI X-ray Analysis",
   "Upload dental X-rays and get AI-powered analysis reports": "Upload dental X-rays and get AI-powered analysis reports",
   "Invalid file type": "Invalid file type",
@@ -121,19 +118,16 @@
   "Patient Information": "Patient Information",
   "Analysis Details": "Analysis Details",
   "Doctor": "Doctor",
-
   "Analysis History": "Analysis History",
   "AI Test Report Analysis": "AI Test Report Analysis",
   "Upload test reports and get AI-powered analysis and interpretation": "Upload test reports and get AI-powered analysis and interpretation",
   "Please select a JPEG, PNG image or PDF file.": "Please select a JPEG, PNG image or PDF file.",
   "Please select a file under 15MB.": "Please select a file under 15MB.",
   "Please select both a test report file and a patient.": "Please select both a test report file and a patient.",
-  "Preparing upload...": "Preparing upload...",
   "Uploading test report...": "Uploading test report...",
   "Processing with AI...": "Processing with AI...",
   "Analyzing test values...": "Analysing test values...",
   "Interpreting results...": "Interpreting results...",
-  "Generating report...": "Generating report...",
   "Your test report has been successfully analyzed.": "Your test report has been successfully analysed.",
   "There was an error analyzing the test report. Please try again.": "There was an error analysing the test report. Please try again.",
   "Error loading data": "Error loading data",
@@ -160,7 +154,6 @@
   "Key Findings": "Key Findings",
   "View Report": "View Report",
   "No AI test analyses found": "No AI test analyses found",
-  "Detailed analysis report for": "Detailed analysis report for",
   "test report": "test report",
   "Analysis Information": "Analysis Information",
   "File Type": "File Type",
@@ -168,7 +161,6 @@
   "This action cannot be undone. This will permanently delete the AI test analysis.": "This action cannot be undone. This will permanently delete the AI test analysis.",
   "No data": "No data",
   "Top Test Type": "Top Test Type",
-
   "Compare Test Reports using AI": "Compare Test Reports using AI",
   "Upload multiple test reports to compare parameters across different dates": "Upload multiple test reports to compare parameters across different dates",
   "AI Powered": "AI Powered",
@@ -182,7 +174,7 @@
   "Selected Files": "Selected Files",
   "Choose a patient": "Choose a patient",
   "No patients found": "No patients found",
-  "e.g., Blood Tests - Q1 2024 vs Q2 2024": "e.g., Blood Tests - Q1 2024 vs Q2 2024",
+  "e.g., Blood Tests - Q1 2025 vs Q2 2025": "e.g., Blood Tests - Q1 2025 vs Q2 2025",
   "Custom Instructions": "Custom Instructions",
   "Any specific instructions for the AI analysis and comparison...": "Any specific instructions for the AI analysis and comparison...",
   "Processing comparison...": "Processing comparison...",
@@ -231,7 +223,6 @@
   "Total Comparisons": "Total Comparisons",
   "This Month": "This Month",
   "Search comparisons...": "Search comparisons...",
-  "All Status": "All Status",
   "Refresh": "Refresh",
   "View and manage your AI test report comparisons": "View and manage your AI test report comparisons",
   "Comparison Name": "Comparison Name",
@@ -244,7 +235,5 @@
   "This action cannot be undone. This will permanently delete the test comparison.": "This action cannot be undone. This will permanently delete the test comparison.",
   "Comparison deleted": "Comparison deleted",
   "AI test comparison has been successfully deleted.": "AI test comparison has been successfully deleted.",
-  "Delete failed": "Delete failed",
   "Could not delete the comparison. Please try again.": "Could not delete the comparison. Please try again."
 }
-

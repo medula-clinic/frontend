@@ -137,7 +137,7 @@ const SuperAdminLogin = () => {
               <p className="text-xs uppercase tracking-[0.4em] text-purple-600 mt-5">
                 Super Admin
               </p>
-              <p className="text-gray-600">ClinicPro Administration Portal</p>
+              <p className="text-gray-600">Medula Administration Portal</p>
             </div>
 
             {/* Login Card */}
@@ -365,7 +365,7 @@ const SuperAdminLogin = () => {
         {/* Copyright */}
         <div className="text-center mt-8 lg:col-span-2">
           <p className="text-xs text-gray-500">
-            © 2024 ClinicPro. All rights reserved.
+            © 2025 Medula. All rights reserved.
           </p>
         </div>
       </motion.div>

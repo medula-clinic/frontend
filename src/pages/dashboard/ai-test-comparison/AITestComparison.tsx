@@ -687,7 +687,7 @@ const AITestComparison: React.FC = () => {
                       id="comparison-name"
                       value={comparisonName}
                       onChange={(e) => setComparisonName(e.target.value)}
-                      placeholder={t("e.g., Blood Tests - Q1 2024 vs Q2 2024")}
+                      placeholder={t("e.g., Blood Tests - Q1 2025 vs Q2 2025")}
                     />
                   </div>
 

@@ -81,7 +81,7 @@ const AddPaymentMethodForm: React.FC<{
         payment_method: {
           card: cardElement,
           billing_details: {
-            name: 'ClinicPro Admin',
+            name: 'Medula Admin',
           },
         },
       });
@@ -223,4 +223,3 @@ const AddPaymentMethodDialog: React.FC<AddPaymentMethodDialogProps> = ({
 };
 
 export default AddPaymentMethodDialog;
-

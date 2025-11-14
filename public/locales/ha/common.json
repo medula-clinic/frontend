@@ -1,6 +1,5 @@
 {
-  "ClinicPro": "ClinicPro",
-
+  "ClinicPro": "Medula",
   "Features": "Abubuwan da ake yi",
   "Testimonials": "Shaidu",
   "Modules": "Sashe-sashe",
@@ -25,7 +24,6 @@
   "Contact our support team": "Tuntuɓar ƙungiyar tallafin mu",
   "Request a Demo": "Nemi demo",
   "Request Demo": "Nemi demo",
-
   "Dashboard": "Allon sarrafa",
   "Dental AI X-ray Analysis": "Nazarin X-ray na hakora da AI",
   "Patients": "Marasa lafiya",
@@ -51,7 +49,6 @@
   "Lab Vendors": "Masu sayar da kayan dakin gwaje-gwaje",
   "Calendar": "Kalanda",
   "Reports": "Rahotanni",
-
   "Overview": "Gabaɗaya",
   "Patient Management": "Kula da marasa lafiya",
   "Financial Management": "Kula da kudi",
@@ -68,13 +65,11 @@
   "Basic Billing": "Lissafin kudi na asali",
   "Full Access": "Cikakken samun kome",
   "Administrator": "Mai gudanarwa",
-
   "Profile": "Bayanin mutum",
   "Log out": "Fita",
   "Currency:": "Kudi:",
-
   "Welcome back": "Maraba da ku",
-  "Sign in to your ClinicPro account to continue": "Shiga asusun ku na ClinicPro don ci gaba",
+  "Sign in to your Medula account to continue": "Shiga asusun ku na Medula don ci gaba",
   "Email": "Imel",
   "Enter your email": "Shigar da imel ɗin ku",
   "Password": "Kalmar sirri",
@@ -92,7 +87,6 @@
   "Please run the database seeder to create demo users": "Ka gudanar da mai shuka bayanai don samar da masu amfani na demo",
   "Refresh": "Sabunta",
   "← Back to homepage": "← Koma shafin farko",
-
   "Search": "Bincike",
   "Filters": "Tacewa",
   "Apply Filters": "Yi amfani da tacewa",
@@ -128,12 +122,10 @@
   "No": "A'a",
   "Confirm": "Tabbatar",
   "Are you sure?": "Kun tabbata?",
-
   "Admin Dashboard": "Allon sarrafa mai gudanarwa",
   "Complete overview of your clinic operations and system health.": "Cikakken bayo game da ayyukan asibitin ku da lafiyar tsarin.",
   "Revenue Overview": "Bayyani kan kudin shiga",
   "Monthly revenue vs expenses": "Kudin shiga na wata-wata da kashe kudi",
-  "View Details": "Duba dalla-dalla",
   "Appointment Status": "Yanayin alƙawuran ganawa",
   "Distribution of appointment statuses": "Rarraba yanayin alƙawuran ganawa",
   "Recent Appointments": "Alƙawuran ganawa na kwanakin nan",
@@ -155,52 +147,41 @@
   "Weekly Revenue": "Kudin shiga na mako-mako",
   "6 Departments": "Sashe 6",
   "Active with 47 staff members": "Yana aiki da ma'aikata 47",
-
   "Add Patient": "Ƙara mai rashin lafiya",
   "Edit Patient": "Gyara mai rashin lafiya",
   "Patient Details": "Dalla-dallan mai rashin lafiya",
-
   "New Appointment": "Sabon alƙawarin ganawa",
   "Edit Appointment": "Gyara alƙawarin ganawa",
   "Appointment Details": "Dalla-dallan alƙawarin ganawa",
   "Reschedule": "Sake tsarawa",
   "Mark as Completed": "Yi alama a matsayin an gama",
   "Cancel Appointment": "Soke alƙawarin ganawa",
-
   "Convert to Patient": "Juya zuwa mai rashin lafiya",
-
   "Create Invoice": "Samar da takarda kudi",
   "Edit Invoice": "Gyara takarda kudi",
   "View Invoice": "Duba takarda kudi",
   "Mark as Paid": "Yi alama a matsayin an biya",
-
   "Record Payment": "Rubuta biyan kudi",
   "Edit Payment": "Gyara biyan kudi",
   "Refund Payment": "Mayar da kudin da aka biya",
-
   "Create Payroll": "Samar da lissafin albashi",
   "Edit Payroll": "Gyara lissafin albashi",
   "Process Payment": "Sarrafa biyan kudi",
-
   "Add Expense": "Ƙara kashe kudi",
   "Edit Expense": "Gyara kashe kudi",
   "View Expense": "Duba kashe kudi",
   "Delete Expense": "Share kashe kudi",
-
   "Add Service": "Ƙara hidima",
   "Edit Service": "Gyara hidima",
   "View Service": "Duba hidima",
   "Activate Service": "Kunna hidima",
   "Deactivate Service": "Kashe hidima",
-
   "Add Department": "Ƙara sashe",
   "Edit Department": "Gyara sashe",
   "View Department": "Duba sashe",
-
   "Add Clinic": "Ƙara asibiti",
   "Edit Clinic": "Gyara asibiti",
   "View Clinic": "Duba asibiti",
-
   "Add Item": "Ƙara abu",
   "Edit Item": "Gyara abu",
   "View Item": "Duba abu",
@@ -208,55 +189,42 @@
   "Out of Stock": "Kayan sun ƙare",
   "In Stock": "Akwai kaya",
   "Stock": "Kaya",
-
   "Add Staff": "Ƙara ma'aikaci",
   "Edit Staff": "Gyara ma'aikaci",
   "Manage Schedule": "Sarrafa jadawali",
   "Update Salary": "Sabunta albashi",
   "View Profile": "Duba bayanin mutum",
-
   "View Vendor": "Duba mai sayarwa",
   "Edit Vendor": "Gyara mai sayarwa",
   "Contract Details": "Dalla-dallan kwangila",
   "Billing & Payments": "Lissafin kudi da biyan kudi",
   "Test History": "Tarihin gwaje-gwaje",
-
   "Manage Permissions": "Sarrafa izini",
   "Save Changes": "Ajiye sauye-sauye",
-
   "Add Test": "Ƙara gwaji",
   "Edit Test": "Gyara gwaji",
   "View Test": "Duba gwaji",
   "Record Test Report": "Rubuta rahoton gwaji",
   "Edit Test Report": "Gyara rahoton gwaji",
-
   "Analytics": "Bincike",
   "Generate Report": "Samar da rahoto",
   "Download Report": "Sauke rahoto",
-
   "Today": "Yau",
   "Previous": "Na baya",
   "Next": "Na gaba",
-
   "New Odontogram": "Sabuwar taswirar hakora",
   "View History": "Duba tarihi",
   "Set Active": "Saita a matsayin mai aiki",
-
   "New Prescription": "Sabuwar magani",
   "Edit Prescription": "Gyara magani",
   "Print Prescription": "Buga magani",
   "Send to Pharmacy": "Aika zuwa kantin magani",
-
   "Edit Profile": "Gyara bayanin mutum",
   "Change Password": "Canza kalmar sirri",
-
   "Settings": "Saitunan",
-
-  "Analyze X-ray": "Nazarin X-ray",
+  "Analyze X-ray": "Yi nazarin X-ray",
   "Upload X-ray": "Ɗora X-ray",
-  "Download Report": "Sauke rahoto",
   "Delete Analysis": "Share nazari",
-
   "Completed": "An gama",
   "Scheduled": "An shirya",
   "Cancelled": "An soke",
@@ -273,7 +241,6 @@
   "High": "Babba",
   "Medium": "Matsakaici",
   "Low": "Ƙarami",
-
   "Upload dental X-rays and get AI-powered analysis reports": "Ɗora hotunan X-ray na hakora ku sami rahoton nazari da AI",
   "Invalid file type": "Nau'in fayil ɗin ba daidai ba ne",
   "Please select a JPEG, JPG, or PNG image.": "Ka zaɓi hoton JPEG, JPG, ko PNG.",
@@ -336,7 +303,6 @@
   "Leave empty to use default comprehensive analysis": "Bar komai don amfani da cikakken nazari na asali",
   "This may take several minutes. Please don't close the browser.": "Wannan na iya ɗaukar mintuna da yawa. Kada ku rufe browser.",
   "Analyzing X-ray...": "Ana nazarin X-ray...",
-  "Analyze X-ray": "Yi nazarin X-ray",
   "AI-generated analysis for": "Nazarin da AI ya samar wa",
   "Detailed Analysis": "Nazari dalla-dalla",
   "Cavities Detected": "An gano ramukan hakora",
@@ -360,19 +326,16 @@
   "Patient Information": "Bayanin mai rashin lafiya",
   "Analysis Details": "Dalla-dallan nazari",
   "Doctor": "Likita",
-
   "Analysis History": "Tarihin nazari",
   "AI Test Report Analysis": "Nazarin rahoton gwaji da AI",
   "Upload test reports and get AI-powered analysis and interpretation": "Ɗora rahoton gwaji ku sami nazari da fassara da AI",
   "Please select a JPEG, PNG image or PDF file.": "Ka zaɓi hoton JPEG, PNG ko fayil ɗin PDF.",
   "Please select a file under 15MB.": "Ka zaɓi fayil da bai wuce MB 15 ba.",
   "Please select both a test report file and a patient.": "Ka zaɓi fayil ɗin rahoton gwaji da mai rashin lafiya.",
-  "Preparing upload...": "Ana shirya ɗorawa...",
   "Uploading test report...": "Ana ɗora rahoton gwaji...",
   "Processing with AI...": "Ana sarrafa da AI...",
   "Analyzing test values...": "Ana nazarin ƙimar gwaji...",
   "Interpreting results...": "Ana fassara sakamako...",
-  "Generating report...": "Ana samar da rahoto...",
   "Your test report has been successfully analyzed.": "An yi nasarar nazarin rahoton gwaji ɗin ku.",
   "There was an error analyzing the test report. Please try again.": "Akwai kuskure wajen nazarin rahoton gwaji. Ka sake gwadawa.",
   "Error loading data": "Kuskure wajen loda bayanai",
@@ -399,7 +362,6 @@
   "Key Findings": "Mahimman abubuwan da aka gano",
   "View Report": "Duba rahoto",
   "No AI test analyses found": "Ba a samu nazarin gwaji da AI ba",
-  "Detailed analysis report for": "Dalla-dallan rahoton nazari na",
   "test report": "rahoton gwaji",
   "Analysis Information": "Bayanin nazari",
   "File Type": "Nau'in fayil",
@@ -408,5 +370,3 @@
   "No data": "Babu bayanai",
   "Top Test Type": "Babban nau'in gwaji"
 }
-
-

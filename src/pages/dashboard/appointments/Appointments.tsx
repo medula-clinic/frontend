@@ -607,7 +607,7 @@ const Appointments = () => {
       
       // Get clinic info from context or use default
       const clinicInfo: ClinicInfo = {
-        name: currentClinic?.name || "ClinicPro Medical Center",
+        name: currentClinic?.name || "Medula Medical Center",
         address: {
           street: currentClinic?.address?.street || "123 Healthcare Avenue",
           city: currentClinic?.address?.city || "Medical District", 

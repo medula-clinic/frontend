@@ -1,5 +1,5 @@
 {
-  "ClinicPro": "ClinicPro",
+  "ClinicPro": "Medula",
   "Features": "Funkcje",
   "Testimonials": "Referencje",
   "Modules": "Moduły",
@@ -24,7 +24,6 @@
   "Contact our support team": "Skontaktuj się z pomocą techniczną",
   "Request a Demo": "Poproś o demo",
   "Request Demo": "Poproś o demo",
-
   "Dashboard": "Pulpit",
   "Dental AI X-ray Analysis": "Analiza RTG z AI",
   "Patients": "Pacjenci",
@@ -50,7 +49,6 @@
   "Lab Vendors": "Laboratoria",
   "Calendar": "Kalendarz",
   "Reports": "Raporty",
-
   "Overview": "Przegląd",
   "Patient Management": "Zarządzanie pacjentami",
   "Financial Management": "Zarządzanie finansami",
@@ -67,13 +65,11 @@
   "Basic Billing": "Podstawowe rozliczenia",
   "Full Access": "Pełny dostęp",
   "Administrator": "Administrator",
-
   "Profile": "Profil",
   "Log out": "Wyloguj",
   "Currency:": "Waluta:",
-
   "Welcome back": "Witaj ponownie",
-  "Sign in to your ClinicPro account to continue": "Zaloguj się do konta ClinicPro, aby kontynuować",
+  "Sign in to your Medula account to continue": "Zaloguj się do konta Medula, aby kontynuować",
   "Email": "E-mail",
   "Enter your email": "Wpisz swój e-mail",
   "Password": "Hasło",
@@ -91,7 +87,6 @@
   "Please run the database seeder to create demo users": "Uruchom seeder bazy danych, aby utworzyć użytkowników demo",
   "Refresh": "Odśwież",
   "← Back to homepage": "← Powrót do strony głównej",
-
   "Search": "Szukaj",
   "Filters": "Filtry",
   "Apply Filters": "Zastosuj filtry",
@@ -127,12 +122,10 @@
   "No": "Nie",
   "Confirm": "Potwierdź",
   "Are you sure?": "Czy na pewno?",
-
   "Admin Dashboard": "Pulpit administratora",
   "Complete overview of your clinic operations and system health.": "Pełny przegląd działań kliniki i stanu systemu.",
   "Revenue Overview": "Przegląd przychodów",
   "Monthly revenue vs expenses": "Miesięczne przychody vs wydatki",
-  "View Details": "Pokaż szczegóły",
   "Appointment Status": "Status wizyt",
   "Distribution of appointment statuses": "Rozkład statusów wizyt",
   "Recent Appointments": "Ostatnie wizyty",
@@ -154,52 +147,41 @@
   "Weekly Revenue": "Tygodniowe przychody",
   "6 Departments": "6 działów",
   "Active with 47 staff members": "Aktywny z 47 pracownikami",
-
   "Add Patient": "Dodaj pacjenta",
   "Edit Patient": "Edytuj pacjenta",
   "Patient Details": "Szczegóły pacjenta",
-
   "New Appointment": "Nowa wizyta",
   "Edit Appointment": "Edytuj wizytę",
   "Appointment Details": "Szczegóły wizyty",
   "Reschedule": "Przełóż",
   "Mark as Completed": "Oznacz jako zakończone",
   "Cancel Appointment": "Anuluj wizytę",
-
   "Convert to Patient": "Konwertuj na pacjenta",
-
   "Create Invoice": "Utwórz fakturę",
   "Edit Invoice": "Edytuj fakturę",
   "View Invoice": "Zobacz fakturę",
   "Mark as Paid": "Oznacz jako opłacone",
-
   "Record Payment": "Zarejestruj płatność",
   "Edit Payment": "Edytuj płatność",
   "Refund Payment": "Zwróć płatność",
-
   "Create Payroll": "Utwórz listę płac",
   "Edit Payroll": "Edytuj listę płac",
   "Process Payment": "Przetwórz płatność",
-
   "Add Expense": "Dodaj wydatek",
   "Edit Expense": "Edytuj wydatek",
   "View Expense": "Zobacz wydatek",
   "Delete Expense": "Usuń wydatek",
-
   "Add Service": "Dodaj usługę",
   "Edit Service": "Edytuj usługę",
   "View Service": "Zobacz usługę",
   "Activate Service": "Aktywuj usługę",
   "Deactivate Service": "Dezaktywuj usługę",
-
   "Add Department": "Dodaj dział",
   "Edit Department": "Edytuj dział",
   "View Department": "Zobacz dział",
-
   "Add Clinic": "Dodaj klinikę",
   "Edit Clinic": "Edytuj klinikę",
   "View Clinic": "Zobacz klinikę",
-
   "Add Item": "Dodaj pozycję",
   "Edit Item": "Edytuj pozycję",
   "View Item": "Zobacz pozycję",
@@ -207,55 +189,42 @@
   "Out of Stock": "Brak w magazynie",
   "In Stock": "W magazynie",
   "Stock": "Stan magazynowy",
-
   "Add Staff": "Dodaj personel",
   "Edit Staff": "Edytuj personel",
   "Manage Schedule": "Zarządzaj grafikiem",
   "Update Salary": "Zaktualizuj wynagrodzenie",
   "View Profile": "Zobacz profil",
-
   "View Vendor": "Zobacz dostawcę",
   "Edit Vendor": "Edytuj dostawcę",
   "Contract Details": "Szczegóły umowy",
   "Billing & Payments": "Fakturowanie i płatności",
   "Test History": "Historia badań",
-
   "Manage Permissions": "Zarządzaj uprawnieniami",
   "Save Changes": "Zapisz zmiany",
-
   "Add Test": "Dodaj badanie",
   "Edit Test": "Edytuj badanie",
   "View Test": "Zobacz badanie",
   "Record Test Report": "Zarejestruj raport badania",
   "Edit Test Report": "Edytuj raport badania",
-
   "Analytics": "Analityka",
   "Generate Report": "Generuj raport",
   "Download Report": "Pobierz raport",
-
   "Today": "Dzisiaj",
   "Previous": "Poprzedni",
   "Next": "Następny",
-
   "New Odontogram": "Nowy odontogram",
   "View History": "Zobacz historię",
   "Set Active": "Ustaw jako aktywne",
-
   "New Prescription": "Nowa recepta",
   "Edit Prescription": "Edytuj receptę",
   "Print Prescription": "Drukuj receptę",
   "Send to Pharmacy": "Wyślij do apteki",
-
   "Edit Profile": "Edytuj profil",
   "Change Password": "Zmień hasło",
-
   "Settings": "Ustawienia",
-
   "Analyze X-ray": "Analizuj RTG",
   "Upload X-ray": "Prześlij RTG",
-  "Download Report": "Pobierz raport",
   "Delete Analysis": "Usuń analizę",
-
   "Completed": "Zakończone",
   "Scheduled": "Zaplanowane",
   "Cancelled": "Anulowane",
@@ -272,7 +241,6 @@
   "High": "Wysoki",
   "Medium": "Średni",
   "Low": "Niski",
-
   "Upload dental X-rays and get AI-powered analysis reports": "Prześlij zdjęcia rentgenowskie zębów i otrzymaj raporty analizy AI",
   "Invalid file type": "Nieprawidłowy typ pliku",
   "Please select a JPEG, JPG, or PNG image.": "Proszę wybrać obraz JPEG, JPG lub PNG.",
@@ -335,7 +303,6 @@
   "Leave empty to use default comprehensive analysis": "Zostaw puste, aby użyć domyślnej kompleksowej analizy",
   "This may take several minutes. Please don't close the browser.": "To może potrwać kilka minut. Nie zamykaj przeglądarki.",
   "Analyzing X-ray...": "Analiza RTG...",
-  "Analyze X-ray": "Analizuj RTG",
   "AI-generated analysis for": "Analiza wygenerowana przez AI dla",
   "Detailed Analysis": "Szczegółowa analiza",
   "Cavities Detected": "Wykryto próchnicę",
@@ -359,7 +326,5 @@
   "Patient Information": "Informacje o pacjencie",
   "Analysis Details": "Szczegóły analizy",
   "Doctor": "Lekarz",
-
   "Analysis History": "Historia Analiz"
 }
-
