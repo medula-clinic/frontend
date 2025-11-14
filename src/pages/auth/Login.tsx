@@ -17,7 +17,6 @@ import {
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import {
-  Heart,
   Eye,
   EyeOff,
   Loader2,
@@ -35,6 +34,7 @@ import PublicHeader from "@/components/layout/PublicHeader";
 import TenantSelector from "@/components/tenant/TenantSelector";
 import { useTranslation } from "react-i18next";
 import apiService from "@/services/api";
+import BrandLogo from "@/components/branding/BrandLogo";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -293,9 +293,8 @@ const Login = () => {
 
         {/* Logo */}
         <div className="text-center mb-8">
-          <Link to="/" className="inline-flex items-center space-x-2">
-            <Heart className="h-8 w-8 text-primary" />
-            <span className="text-2xl font-bold text-foreground">{t("ClinicPro")}</span>
+          <Link to="/" className="inline-flex items-center justify-center">
+            <BrandLogo className="h-12 drop-shadow-2xl" />
           </Link>
           {/* Show current tenant info if on subdomain */}
           {isMultiTenant && currentTenant && (

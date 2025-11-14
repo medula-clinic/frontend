@@ -47,7 +47,7 @@ const SuperAdminLayout = () => {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50 flex overflow-hidden">
+    <div className="min-h-screen bg-background flex overflow-hidden dashboard-layout">
       {/* Desktop Sidebar */}
       <div className="hidden lg:block lg:fixed lg:inset-y-0 lg:w-72 lg:z-50">
         <SuperAdminSidebar isOpen={true} onClose={() => {}} />
@@ -79,9 +79,9 @@ const SuperAdminLayout = () => {
       )}
 
       {/* Main Content */}
-      <div className="flex-1 lg:pl-72">
+      <div className="flex-1 lg:pl-72 dashboard-main">
         {/* Top Bar */}
-        <header className="sticky top-0 z-40 flex h-16 items-center gap-x-4 border-b border-slate-200 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8">
+        <header className="sticky top-0 z-40 flex h-16 items-center gap-x-4 border-b border-border bg-background/90 backdrop-blur-xl px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8">
           {/* Mobile menu button */}
           <Button
             variant="ghost"
@@ -95,9 +95,9 @@ const SuperAdminLayout = () => {
           {/* Breadcrumb / Page Title */}
           <div className="flex-1 flex items-center">
             <div className="flex items-center space-x-2">
-              <Crown className="h-5 w-5 text-purple-600" />
-              <h1 className="text-lg font-semibold text-slate-900">Super Admin Dashboard</h1>
-              <Badge variant="outline" className="bg-purple-50 text-purple-700 border-purple-200">
+              <Crown className="h-5 w-5 text-primary" />
+              <h1 className="text-lg font-semibold text-foreground">Super Admin Dashboard</h1>
+              <Badge variant="outline" className="bg-primary/10 text-primary border-primary/20">
                 System Management
               </Badge>
             </div>
@@ -109,7 +109,7 @@ const SuperAdminLayout = () => {
               <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
               <Input
                 placeholder="Search system..."
-                className="pl-10 w-64 bg-slate-50 border-slate-200 focus:bg-white"
+                className="pl-10 w-64 bg-secondary/70 border-border focus:bg-card"
               />
             </div>
           </div>
@@ -125,14 +125,14 @@ const SuperAdminLayout = () => {
           {/* User Info */}
           <div className="hidden sm:flex items-center space-x-3">
             <div className="text-right">
-              <div className="text-sm font-medium text-slate-900">
+              <div className="text-sm font-medium text-foreground">
                 {currentSuperAdmin ? `${currentSuperAdmin.first_name} ${currentSuperAdmin.last_name}` : 'Super Admin'}
               </div>
-              <div className="text-xs text-slate-500">
+              <div className="text-xs text-muted-foreground">
                 System Administrator
               </div>
             </div>
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-purple-600 to-blue-600">
+            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-purple-600 to-pink-500">
               <Crown className="h-4 w-4 text-white" />
             </div>
           </div>

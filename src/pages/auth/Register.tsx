@@ -22,7 +22,6 @@ import {
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import {
-  Heart,
   Eye,
   EyeOff,
   Loader2,
@@ -36,6 +35,7 @@ import {
 import { toast } from "@/hooks/use-toast";
 import PublicHeader from "@/components/layout/PublicHeader";
 import apiService from "@/services/api";
+import BrandLogo from "@/components/branding/BrandLogo";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -214,9 +214,8 @@ const Register = () => {
       >
         {/* Logo */}
         <div className="text-center mb-8">
-          <Link to="/" className="inline-flex items-center space-x-2">
-            <Heart className="h-8 w-8 text-primary" />
-            <span className="text-2xl font-bold text-foreground">ClinicPro</span>
+          <Link to="/" className="inline-flex items-center justify-center">
+            <BrandLogo className="h-12 drop-shadow-2xl" />
           </Link>
         </div>
 

@@ -96,6 +96,10 @@ export default {
       fontSize: {
         '2xs': ['0.625rem', { lineHeight: '0.75rem' }],
       },
+      fontFamily: {
+        sans: ["'DM Sans'", "'Open Sans'", "system-ui", "sans-serif"],
+        heading: ["'DM Sans'", "'Open Sans'", "system-ui", "sans-serif"],
+      },
       keyframes: {
         "accordion-down": {
           from: {

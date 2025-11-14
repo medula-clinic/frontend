@@ -2,9 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Heart, Home, ArrowLeft } from "lucide-react";
+import { Home, ArrowLeft } from "lucide-react";
 import PublicHeader from "@/components/layout/PublicHeader";
 import { useTranslation } from "react-i18next";
+import BrandLogo from "@/components/branding/BrandLogo";
 
 const NotFound = () => {
   const { t } = useTranslation();
@@ -20,9 +21,8 @@ const NotFound = () => {
       >
         {/* Logo */}
         <div className="mb-8">
-          <Link to="/" className="inline-flex items-center space-x-2">
-            <Heart className="h-12 w-12 text-primary" />
-            <span className="text-3xl font-bold text-foreground">{t("ClinicPro")}</span>
+          <Link to="/" className="inline-flex items-center justify-center">
+            <BrandLogo className="h-14 drop-shadow-xl" />
           </Link>
         </div>
 

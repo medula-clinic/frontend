@@ -6,8 +6,8 @@ import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
+import BrandLogo from "@/components/branding/BrandLogo";
 import {
-  Crown,
   LayoutDashboard,
   Building2,
   X,
@@ -129,39 +129,39 @@ const SuperAdminSidebar: React.FC<SuperAdminSidebarProps> = ({ isOpen, onClose }
   };
 
   return (
-    <div className="flex h-full flex-col bg-gradient-to-b from-slate-900 to-slate-800 text-white border-r border-slate-700">
+    <div className="flex h-full flex-col bg-gradient-to-b from-[#160B34] via-[#1d0f4b] to-[#2C1F73] text-white border-r border-purple-900/40 shadow-[0_25px_45px_rgba(12,6,34,0.45)]">
       {/* Header */}
-      <div className="flex h-16 items-center justify-between px-4 border-b border-slate-700">
-        <Link to="/admin/dashboard" className="flex items-center space-x-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-r from-purple-600 to-blue-600">
-            <Crown className="h-5 w-5 text-white" />
-          </div>
-          <div>
-            <span className="text-lg font-bold">ClinicPro</span>
-            <div className="text-xs text-slate-400">Super Admin</div>
+      <div className="flex h-16 items-center justify-between px-4 border-b border-white/10">
+        <Link to="/admin/dashboard" className="flex items-center space-x-3">
+          <BrandLogo className="h-9 drop-shadow-lg" variant="dark" />
+          <div className="flex flex-col leading-tight">
+            <span className="text-xs uppercase tracking-[0.3em] text-slate-400">
+              Super Admin
+            </span>
+            <span className="text-sm text-slate-200 font-medium">Control Room</span>
           </div>
         </Link>
         <Button
           variant="ghost"
           size="sm"
           onClick={onClose}
-          className="text-slate-400 hover:text-white hover:bg-slate-700 lg:hidden"
+          className="text-white/70 hover:text-white hover:bg-white/10 lg:hidden"
         >
           <X className="h-4 w-4" />
         </Button>
       </div>
 
       {/* User Info */}
-      <div className="px-4 py-4 border-b border-slate-700">
+      <div className="px-4 py-4 border-b border-white/10">
         <div className="flex items-center space-x-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-r from-purple-600 to-blue-600">
+          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-r from-[#7B1FE4] to-[#FD7B5F]">
             <UserCog className="h-5 w-5 text-white" />
           </div>
           <div className="flex-1 min-w-0">
             <div className="text-sm font-medium text-white truncate">
               {currentSuperAdmin ? `${currentSuperAdmin.first_name} ${currentSuperAdmin.last_name}` : 'Super Admin'}
             </div>
-            <div className="text-xs text-slate-400 truncate">
+            <div className="text-xs text-white/70 truncate">
               {currentSuperAdmin?.email || 'super.admin@clinicpro.com'}
             </div>
           </div>
@@ -177,7 +177,7 @@ const SuperAdminSidebar: React.FC<SuperAdminSidebarProps> = ({ isOpen, onClose }
         <div className="space-y-6 py-4">
           {navigationSections.map((section, sectionIndex) => (
             <div key={sectionIndex}>
-              <h2 className="mb-3 px-3 text-xs font-semibold text-slate-400 uppercase tracking-wider">
+              <h2 className="mb-3 px-3 text-xs font-semibold text-white/60 uppercase tracking-wider">
                 {section.title}
               </h2>
               <div className="space-y-1">
@@ -191,8 +191,8 @@ const SuperAdminSidebar: React.FC<SuperAdminSidebarProps> = ({ isOpen, onClose }
                       className={cn(
                         "flex items-center space-x-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors group",
                         active
-                          ? "bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg"
-                          : "text-slate-300 hover:bg-slate-700 hover:text-white"
+                          ? "bg-gradient-to-r from-[#7B1FE4] to-[#FD7B5F] text-white shadow-lg"
+                          : "text-white/75 hover:bg-white/10 hover:text-white"
                       )}
                     >
                       <item.icon 

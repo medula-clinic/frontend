@@ -12,6 +12,7 @@ import ProtectedRoute from "@/components/ProtectedRoute";
 import RequirePermission from "@/components/RequirePermission";
 import DashboardLayout from "@/components/layout/DashboardLayout";
 import ErrorBoundary from "@/components/ui/ErrorBoundary";
+import BrandAssetManager from "@/components/branding/BrandAssetManager";
 
 // Pages
 import Index from "./pages/Index";
@@ -122,10 +123,11 @@ const App = () => {
             <AuthProvider>
               <ClinicProvider>
                 <CurrencyProvider>
-                <Toaster />
-                <Sonner />
-                <BrowserRouter>
-          <Routes>
+                  <Toaster />
+                  <Sonner />
+                  <BrowserRouter>
+                    <BrandAssetManager />
+                    <Routes>
             {/* Public routes */}
             <Route path="/" element={<Index />} />
             <Route path="/features" element={<Features />} />
@@ -490,13 +492,13 @@ const App = () => {
 
             {/* Catch-all route */}
             <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
-        </CurrencyProvider>
-      </ClinicProvider>
-      </AuthProvider>
-    </TooltipProvider>
-  </QueryClientProvider>
+                    </Routes>
+                  </BrowserRouter>
+                </CurrencyProvider>
+              </ClinicProvider>
+            </AuthProvider>
+          </TooltipProvider>
+        </QueryClientProvider>
       </ThemeProvider>
     </ErrorBoundary>
   );

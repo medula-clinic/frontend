@@ -18,8 +18,8 @@ import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
+import BrandLogo from "@/components/branding/BrandLogo";
 import {
-  Heart,
   Home,
   Users,
   Calendar,
@@ -315,8 +315,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
       >
         <div className="flex items-center justify-between h-16 px-6 border-b border-sidebar-border">
           <Link to="/dashboard" className="flex items-center space-x-2">
-            <Heart className="h-8 w-8 text-sidebar-primary" />
-            <span className="text-xl font-bold text-sidebar-foreground">ClinicPro</span>
+            <BrandLogo className="h-8 drop-shadow" />
           </Link>
           <Button
             variant="ghost"

@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Heart, ArrowLeft, Building2 } from "lucide-react";
+import { ArrowLeft, Building2 } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
+import BrandLogo from "@/components/branding/BrandLogo";
 
 interface PublicHeaderProps {
   showBackToHome?: boolean;
@@ -55,13 +56,12 @@ const PublicHeader: React.FC<PublicHeaderProps> = ({
     window.location.href = getMainDomainUrl();
   };
   return (
-    <nav className="border-b bg-background/95 backdrop-blur-md sticky top-0 z-50">
+    <nav className="border-b border-purple-100/60 dark:border-purple-900/30 bg-white/80 dark:bg-background/80 backdrop-blur-xl sticky top-0 z-50 shadow-[0_10px_30px_rgba(22,12,60,0.08)]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <Heart className="h-8 w-8 text-primary" />
-            <span className="font-bold text-xl text-foreground">ClinicPro</span>
+            <BrandLogo className="h-8 drop-shadow-sm" />
           </Link>
 
           {/* Navigation Actions */}
@@ -119,4 +119,3 @@ const PublicHeader: React.FC<PublicHeaderProps> = ({
 };
 
 export default PublicHeader;
-

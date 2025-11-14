@@ -2,10 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Heart, ArrowLeft } from "lucide-react";
 import FeaturesShowcase from "@/components/features/FeaturesShowcase";
 import FeatureCards from "@/components/features/FeatureCards";
 import PublicHeader from "@/components/layout/PublicHeader";
+import BrandLogo from "@/components/branding/BrandLogo";
 
 const Features = () => {
   return (
@@ -20,9 +20,8 @@ const Features = () => {
       <footer className="bg-gray-900 text-white py-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <Link to="/" className="inline-flex items-center space-x-2 mb-4">
-              <Heart className="h-8 w-8 text-blue-400" />
-              <span className="text-xl font-bold">ClinicPro</span>
+            <Link to="/" className="inline-flex items-center justify-center mb-4">
+              <BrandLogo className="h-10 drop-shadow" />
             </Link>
             <p className="text-gray-400 mb-6">
               The complete clinic management solution for modern healthcare

@@ -13,15 +13,9 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import {
-  Eye,
-  EyeOff,
-  Loader2,
-  Shield,
-  Crown,
-  Lock,
-} from "lucide-react";
+import { Eye, EyeOff, Loader2, Shield, Lock } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
+import BrandLogo from "@/components/branding/BrandLogo";
 
 const SuperAdminLogin = () => {
   const [email, setEmail] = useState("");
@@ -118,12 +112,12 @@ const SuperAdminLogin = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-[#F8F4FF] via-white to-[#F0E8FF] flex items-center justify-center p-4">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-30">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-100/20 to-blue-100/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-100/25 to-amber-100/20"></div>
         <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, rgba(99, 102, 241, 0.1) 1px, transparent 0)`,
+          backgroundImage: `radial-gradient(circle at 1px 1px, rgba(123, 31, 228, 0.1) 1px, transparent 0)`,
           backgroundSize: '20px 20px'
         }}></div>
       </div>
@@ -139,15 +133,15 @@ const SuperAdminLogin = () => {
           <div className={`w-full max-w-md mx-auto ${import.meta.env.VITE_DEV_ENV === 'false' ? 'max-w-lg' : ''}`}>
             {/* Header */}
             <div className="text-center mb-8">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full mb-4 shadow-lg">
-                <Crown className="h-8 w-8 text-white" />
-              </div>
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">Super Admin</h1>
+              <BrandLogo className="h-14 mx-auto drop-shadow-xl" />
+              <p className="text-xs uppercase tracking-[0.4em] text-purple-600 mt-5">
+                Super Admin
+              </p>
               <p className="text-gray-600">ClinicPro Administration Portal</p>
             </div>
 
             {/* Login Card */}
-            <Card className="backdrop-blur-sm bg-white/90 border-gray-200 shadow-xl">
+            <Card className="backdrop-blur-sm bg-white/90 border-purple-100 shadow-xl">
               <CardHeader className="space-y-1 text-center pb-6">
                 <div className="flex items-center justify-center space-x-2 mb-2">
                   <Shield className="h-5 w-5 text-purple-600" />

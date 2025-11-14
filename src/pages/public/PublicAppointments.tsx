@@ -15,7 +15,6 @@ import {
   CheckCircle,
   XCircle,
   AlertCircle,
-  Heart,
   Phone,
   Mail,
   MapPin,
@@ -23,6 +22,7 @@ import {
   ChevronRight,
   RefreshCw,
 } from "lucide-react";
+import BrandLogo from "@/components/branding/BrandLogo";
 
 interface Patient {
   _id: string;
@@ -266,12 +266,13 @@ const PublicAppointments: React.FC = () => {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-gray-50 py-8 px-4">
+      <div className="min-h-screen bg-background py-8 px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8">
-            <Heart className="h-12 w-12 text-blue-600 mx-auto mb-4" />
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">ClinicPro</h1>
-            <p className="text-gray-600">Patient Appointments Portal</p>
+            <BrandLogo className="h-12 mx-auto drop-shadow-lg" />
+            <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground mt-3">
+              Patient Appointments Portal
+            </p>
           </div>
 
           <Alert variant="destructive" className="max-w-md mx-auto">
@@ -293,13 +294,14 @@ const PublicAppointments: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4">
+    <div className="min-h-screen bg-background py-8 px-4">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
-          <Heart className="h-12 w-12 text-blue-600 mx-auto mb-4" />
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">ClinicPro</h1>
-          <p className="text-gray-600">Patient Appointments Portal</p>
+          <BrandLogo className="h-12 mx-auto drop-shadow-lg" />
+          <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground mt-3">
+            Patient Appointments Portal
+          </p>
         </div>
 
         {/* Patient Information */}

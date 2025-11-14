@@ -12,7 +12,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Heart, Loader2, CheckCircle } from "lucide-react";
+import { Loader2, CheckCircle } from "lucide-react";
+import BrandLogo from "@/components/branding/BrandLogo";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
@@ -46,11 +47,8 @@ const ForgotPassword = () => {
           className="w-full max-w-md"
         >
           <div className="text-center mb-8">
-            <Link to="/" className="inline-flex items-center space-x-2">
-              <Heart className="h-8 w-8 text-blue-600" />
-              <span className="text-2xl font-bold text-gray-900">
-                ClinicPro
-              </span>
+            <Link to="/" className="inline-flex items-center justify-center">
+              <BrandLogo className="h-12 drop-shadow-lg" />
             </Link>
           </div>
 
@@ -99,9 +97,8 @@ const ForgotPassword = () => {
       >
         {/* Logo */}
         <div className="text-center mb-8">
-          <Link to="/" className="inline-flex items-center space-x-2">
-            <Heart className="h-8 w-8 text-blue-600" />
-            <span className="text-2xl font-bold text-gray-900">ClinicPro</span>
+          <Link to="/" className="inline-flex items-center justify-center">
+            <BrandLogo className="h-12 drop-shadow-lg" />
           </Link>
         </div>
 
