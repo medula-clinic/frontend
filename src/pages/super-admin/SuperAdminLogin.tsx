@@ -13,7 +13,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Eye, EyeOff, Loader2, Shield, Lock } from "lucide-react";
+import { Eye, EyeOff, Loader2, Shield, Lock, Crown } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import BrandLogo from "@/components/branding/BrandLogo";
 
