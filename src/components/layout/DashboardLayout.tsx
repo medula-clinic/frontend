@@ -59,20 +59,20 @@ const DashboardLayout = () => {
       )}
 
       {/* Main content area */}
-      <div className="flex-1 flex flex-col lg:ml-64 lg:w-[calc(100%-16rem)] min-w-0 dashboard-main">
+      <div className="flex-1 flex flex-col lg:ml-64 lg:w-[calc(100%-16rem)] min-w-0 dashboard-main w-full">
         {/* Top Bar */}
         <div className="sticky top-0 z-40 bg-background border-b border-border shadow-sm">
           <TopBar onMenuClick={openSidebar} />
         </div>
 
         {/* Main content */}
-        <main className="flex-1 overflow-auto">
-          <div className="p-2 xs:p-3 sm:p-4 md:p-5 lg:p-6 xl:p-8 min-h-full max-w-full">
+        <main className="flex-1 overflow-auto w-full">
+          <div className="p-2 xs:p-3 sm:p-4 md:p-5 lg:p-6 xl:p-8 min-h-full w-full">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
-              className="w-full max-w-full overflow-hidden"
+              className="w-full overflow-hidden"
             >
               <Outlet />
             </motion.div>

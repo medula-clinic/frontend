@@ -79,7 +79,7 @@ const SuperAdminLayout = () => {
       )}
 
       {/* Main Content */}
-      <div className="flex-1 lg:pl-72 dashboard-main">
+      <div className="flex-1 lg:pl-72 dashboard-main w-full">
         {/* Top Bar */}
         <header className="sticky top-0 z-40 flex h-16 items-center gap-x-4 border-b border-border bg-background/90 backdrop-blur-xl px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8">
           {/* Mobile menu button */}
@@ -139,13 +139,13 @@ const SuperAdminLayout = () => {
         </header>
 
         {/* Page Content */}
-        <main className="flex-1">
-          <div className="p-4 sm:p-6 lg:p-8">
+        <main className="flex-1 w-full">
+          <div className="p-4 sm:p-6 lg:p-8 w-full">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
-              className="h-full"
+              className="h-full w-full"
             >
               <Outlet />
             </motion.div>
