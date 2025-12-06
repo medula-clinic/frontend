@@ -63,6 +63,10 @@ export interface TenantSubscription {
   price_amount: number;
   currency: string;
   payment_method?: string;
+  payment_status?: 'pending' | 'paid' | 'failed';
+  paid_at?: string;
+  manual_payment_reference?: string;
+  manual_payment_notes?: string;
   next_payment_attempt?: string;
   last_payment_date?: string;
   formatted_price?: string;
@@ -143,9 +147,13 @@ export interface UpdatePlanRequest {
 export interface CreateSubscriptionRequest {
   tenant_id: string;
   plan_id: string;
-  customer_email: string;
+  customer_email?: string;
   trial_days?: number;
   admin_payment_method_id?: string; // For admin to pay on behalf of customer
+  payment_method?: 'stripe' | 'cash' | 'upi' | 'bank_transfer' | 'other';
+  manual_payment_reference?: string;
+  manual_payment_notes?: string;
+  paid_at?: string;
 }
 
 export interface CancelSubscriptionRequest {

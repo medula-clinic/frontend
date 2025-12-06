@@ -27,6 +27,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertDescription } from '@/components/ui/alert';
@@ -52,16 +53,39 @@ interface CreateSubscriptionDialogProps {
   tenants: Tenant[];
 }
 
+const paymentMethodOptions = ['stripe', 'cash', 'upi', 'bank_transfer', 'other'] as const;
+
 // Form validation schema
 const createSubscriptionSchema = z.object({
   tenant_id: z.string()
     .min(1, 'Please select a tenant'),
   plan_id: z.string()
     .min(1, 'Please select a plan'),
-  customer_email: z.string()
-    .email('Please enter a valid email address')
-    .min(1, 'Email is required'),
+  payment_method: z.enum(paymentMethodOptions),
+  customer_email: z.union([
+    z.string().trim().email('Please enter a valid email address'),
+    z.literal('')
+  ]),
+  manual_payment_reference: z.string().max(120, 'Reference cannot exceed 120 characters').optional(),
+  manual_payment_notes: z.string().max(1000, 'Notes cannot exceed 1000 characters').optional(),
+  paid_at: z.string().optional(),
+}).superRefine((data, ctx) => {
+  if (data.payment_method === 'stripe') {
+    if (!data.customer_email || !data.customer_email.trim()) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: 'Customer email is required for Stripe payments',
+        path: ['customer_email']
+      });
+    }
+  }
 });
+
+const getDefaultPaidAtValue = () => {
+  const now = new Date();
+  const local = new Date(now.getTime() - now.getTimezoneOffset() * 60000);
+  return local.toISOString().slice(0, 16);
+};
 
 type CreateSubscriptionFormData = z.infer<typeof createSubscriptionSchema>;
 
@@ -80,16 +104,42 @@ const CreateSubscriptionDialog: React.FC<CreateSubscriptionDialogProps> = ({
       tenant_id: '',
       plan_id: '',
       customer_email: '',
+      payment_method: 'stripe',
+      manual_payment_reference: '',
+      manual_payment_notes: '',
+      paid_at: getDefaultPaidAtValue(),
     },
   });
 
   const handleSubmit = async (data: CreateSubscriptionFormData) => {
     try {
       setLoading(true);
-      await onSubmit(data);
+      const payload: any = {
+        tenant_id: data.tenant_id,
+        plan_id: data.plan_id,
+        payment_method: data.payment_method,
+      };
+
+      if (data.payment_method === 'stripe') {
+        payload.customer_email = data.customer_email?.trim();
+      } else {
+        payload.manual_payment_reference = data.manual_payment_reference?.trim() || undefined;
+        payload.manual_payment_notes = data.manual_payment_notes?.trim() || undefined;
+        payload.paid_at = data.paid_at ? new Date(data.paid_at).toISOString() : undefined;
+      }
+
+      await onSubmit(payload);
       
       // Reset form
-      form.reset();
+      form.reset({
+        tenant_id: '',
+        plan_id: '',
+        customer_email: '',
+        payment_method: 'stripe',
+        manual_payment_reference: '',
+        manual_payment_notes: '',
+        paid_at: getDefaultPaidAtValue(),
+      });
       onOpenChange(false);
     } catch (error) {
       console.error('Error creating subscription:', error);
@@ -99,7 +149,15 @@ const CreateSubscriptionDialog: React.FC<CreateSubscriptionDialogProps> = ({
   };
 
   const handleCancel = () => {
-    form.reset();
+    form.reset({
+      tenant_id: '',
+      plan_id: '',
+      customer_email: '',
+      payment_method: 'stripe',
+      manual_payment_reference: '',
+      manual_payment_notes: '',
+      paid_at: getDefaultPaidAtValue(),
+    });
     onOpenChange(false);
   };
 
@@ -107,8 +165,23 @@ const CreateSubscriptionDialog: React.FC<CreateSubscriptionDialogProps> = ({
   const handleTenantChange = (tenantId: string) => {
     form.setValue('tenant_id', tenantId);
     const selectedTenant = tenants.find(t => (t._id || t.id) === tenantId);
-    if (selectedTenant) {
-      form.setValue('customer_email', selectedTenant.email);
+    if (selectedTenant && form.getValues('payment_method') === 'stripe') {
+      form.setValue('customer_email', selectedTenant.email || '');
+    } else if (form.getValues('payment_method') === 'stripe') {
+      form.setValue('customer_email', '');
+    }
+  };
+
+  const handlePaymentMethodChange = (method: typeof paymentMethodOptions[number]) => {
+    if (method === 'stripe') {
+      const tenantId = form.getValues('tenant_id');
+      const selectedTenant = tenants.find(t => (t._id || t.id) === tenantId);
+      form.setValue('customer_email', selectedTenant?.email || '');
+    } else {
+      form.setValue('customer_email', '');
+      if (!form.getValues('paid_at')) {
+        form.setValue('paid_at', getDefaultPaidAtValue());
+      }
     }
   };
 
@@ -127,8 +200,12 @@ const CreateSubscriptionDialog: React.FC<CreateSubscriptionDialogProps> = ({
     return intervalMap[interval as keyof typeof intervalMap] || interval;
   };
 
-  const selectedTenant = tenants.find(t => (t._id || t.id) === form.watch('tenant_id'));
-  const selectedPlan = plans.find(p => p._id === form.watch('plan_id'));
+  const tenantId = form.watch('tenant_id');
+  const planId = form.watch('plan_id');
+  const paymentMethod = form.watch('payment_method');
+  const isStripePayment = paymentMethod === 'stripe';
+  const selectedTenant = tenants.find(t => (t._id || t.id) === tenantId);
+  const selectedPlan = plans.find(p => p._id === planId);
 
   // Filter out tenants that might already have active subscriptions
   const availableTenants = tenants.filter(t => t.status === 'active');
@@ -143,7 +220,7 @@ const CreateSubscriptionDialog: React.FC<CreateSubscriptionDialogProps> = ({
             Create Subscription
           </DialogTitle>
           <DialogDescription>
-            Create a new subscription for a tenant organization. This will create a Stripe subscription and set up billing.
+            Create a new subscription for a tenant organization. Use Stripe for online billing or mark offline payments as paid.
           </DialogDescription>
         </DialogHeader>
 
@@ -153,7 +230,7 @@ const CreateSubscriptionDialog: React.FC<CreateSubscriptionDialogProps> = ({
             <Alert>
               <Info className="h-4 w-4" />
               <AlertDescription className="text-sm">
-                <strong>Note:</strong> This will create a new Stripe subscription. Make sure the tenant doesn't already have an active subscription to avoid billing conflicts.
+                <strong>Note:</strong> Each tenant can only have one active subscription. Ensure there isn&apos;t already an active plan before proceeding.
               </AlertDescription>
             </Alert>
 
@@ -248,31 +325,148 @@ const CreateSubscriptionDialog: React.FC<CreateSubscriptionDialogProps> = ({
               )}
             />
 
-            {/* Customer Email */}
+            {/* Payment Method */}
             <FormField
               control={form.control}
-              name="customer_email"
+              name="payment_method"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Customer Email</FormLabel>
-                  <FormControl>
-                    <div className="relative">
-                      <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                      <Input 
-                        placeholder="customer@example.com"
-                        className="pl-10"
-                        {...field} 
-                        disabled={loading}
-                      />
-                    </div>
-                  </FormControl>
+                  <FormLabel>Payment Method</FormLabel>
+                  <Select
+                    value={field.value}
+                    onValueChange={(value) => {
+                      field.onChange(value);
+                      handlePaymentMethodChange(value as typeof paymentMethodOptions[number]);
+                    }}
+                    disabled={loading}
+                  >
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select payment method" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      <SelectItem value="stripe">
+                        Stripe (Online)
+                      </SelectItem>
+                      <SelectItem value="cash">
+                        Cash
+                      </SelectItem>
+                      <SelectItem value="upi">
+                        UPI
+                      </SelectItem>
+                      <SelectItem value="bank_transfer">
+                        Bank Transfer
+                      </SelectItem>
+                      <SelectItem value="other">
+                        Other Offline Method
+                      </SelectItem>
+                    </SelectContent>
+                  </Select>
                   <FormDescription>
-                    Email address for billing and subscription notifications
+                    Choose Stripe for online billing or mark the subscription as paid using an offline method.
                   </FormDescription>
                   <FormMessage />
                 </FormItem>
               )}
             />
+
+            {/* Customer Email */}
+            {isStripePayment && (
+              <FormField
+                control={form.control}
+                name="customer_email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Customer Email</FormLabel>
+                    <FormControl>
+                      <div className="relative">
+                        <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                        <Input 
+                          placeholder="customer@example.com"
+                          className="pl-10"
+                          {...field} 
+                          disabled={loading}
+                        />
+                      </div>
+                    </FormControl>
+                    <FormDescription>
+                      Email address for billing and subscription notifications
+                    </FormDescription>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            )}
+
+            {!isStripePayment && (
+              <div className="space-y-4 rounded-lg border border-border p-4 bg-muted/40">
+                <FormField
+                  control={form.control}
+                  name="manual_payment_reference"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Payment Reference (optional)</FormLabel>
+                      <FormControl>
+                        <Input 
+                          placeholder="UPI txn ID, receipt, etc."
+                          disabled={loading}
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormDescription>
+                        Store a reference number or identifier for this manual payment.
+                      </FormDescription>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="manual_payment_notes"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Payment Notes (optional)</FormLabel>
+                      <FormControl>
+                        <Textarea 
+                          placeholder="Any additional context about this payment"
+                          rows={3}
+                          disabled={loading}
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormDescription>
+                        Add internal notes about how this payment was verified.
+                      </FormDescription>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="paid_at"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Paid At</FormLabel>
+                      <FormControl>
+                        <Input 
+                          type="datetime-local"
+                          disabled={loading}
+                          value={field.value || ''}
+                          onChange={field.onChange}
+                        />
+                      </FormControl>
+                      <FormDescription>
+                        When the offline payment was received. Defaults to the current date/time.
+                      </FormDescription>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+            )}
 
             {/* Selected Tenant Info */}
             {selectedTenant && (
@@ -354,13 +548,22 @@ const CreateSubscriptionDialog: React.FC<CreateSubscriptionDialogProps> = ({
             )}
 
             {/* Payment Notice */}
-            <Alert className="border-orange-200 bg-orange-50">
-              <AlertTriangle className="h-4 w-4" />
-              <AlertDescription className="text-orange-800">
-                <strong>Payment Setup Required:</strong> After creating the subscription, the tenant will need to complete payment setup through Stripe. 
-                They will receive an email with payment instructions.
-              </AlertDescription>
-            </Alert>
+            {isStripePayment ? (
+              <Alert className="border-orange-200 bg-orange-50">
+                <AlertTriangle className="h-4 w-4" />
+                <AlertDescription className="text-orange-800">
+                  <strong>Stripe Payment Required:</strong> After creating the subscription, the tenant will need to complete payment setup through Stripe. 
+                  They will receive an email with payment instructions.
+                </AlertDescription>
+              </Alert>
+            ) : (
+              <Alert className="border-green-200 bg-green-50">
+                <CheckCircle className="h-4 w-4 text-green-600" />
+                <AlertDescription className="text-green-800">
+                  <strong>Manual Payment:</strong> This subscription will be activated immediately and marked as paid using the selected offline method.
+                </AlertDescription>
+              </Alert>
+            )}
 
             <DialogFooter>
               <Button 
@@ -374,9 +577,11 @@ const CreateSubscriptionDialog: React.FC<CreateSubscriptionDialogProps> = ({
               <Button 
                 type="submit" 
                 disabled={loading || !form.formState.isValid}
-                className="min-w-[140px]"
+                className="min-w-[180px]"
               >
-                {loading ? 'Creating...' : 'Create Subscription'}
+                {loading 
+                  ? (isStripePayment ? 'Creating...' : 'Saving...')
+                  : (isStripePayment ? 'Create Subscription' : 'Mark as Paid & Activate')}
               </Button>
             </DialogFooter>
           </form>
@@ -387,4 +592,3 @@ const CreateSubscriptionDialog: React.FC<CreateSubscriptionDialogProps> = ({
 };
 
 export default CreateSubscriptionDialog;
-
