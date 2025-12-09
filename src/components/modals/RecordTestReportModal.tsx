@@ -42,6 +42,7 @@ import { Test } from "@/types";
 interface RecordTestReportModalProps {
   trigger?: React.ReactNode;
   onReportRecorded?: () => void;
+  preSelectedPatientId?: string;
 }
 
 interface UploadedFile {
@@ -55,6 +56,7 @@ interface UploadedFile {
 const RecordTestReportModal: React.FC<RecordTestReportModalProps> = ({
   trigger,
   onReportRecorded,
+  preSelectedPatientId,
 }) => {
   const [open, setOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -98,6 +100,12 @@ const RecordTestReportModal: React.FC<RecordTestReportModalProps> = ({
       fetchData();
     }
   }, [open]);
+
+  useEffect(() => {
+    if (open && preSelectedPatientId) {
+      handlePatientSelect(preSelectedPatientId);
+    }
+  }, [open, preSelectedPatientId]);
 
   const fetchData = async () => {
     setDataLoading(true);

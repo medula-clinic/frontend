@@ -29,6 +29,8 @@ import EditInvoiceModal from "@/components/modals/EditInvoiceModal";
 import DeleteInvoiceModal from "@/components/modals/DeleteInvoiceModal";
 import RecordPaymentModal from "@/components/modals/RecordPaymentModal";
 import { toast } from "@/hooks/use-toast";
+import CreateInvoiceModal from "@/components/modals/CreateInvoiceModal";
+import { Plus } from "lucide-react";
 
 interface PatientInvoicesTabProps {
   patientId?: string;
@@ -129,6 +131,19 @@ const PatientInvoicesTab: React.FC<PatientInvoicesTabProps> = ({ patientId }) =>
 
   return (
     <>
+      <div className="flex justify-end mb-4">
+        <CreateInvoiceModal
+          preSelectedPatientId={patientId}
+          onSuccess={() => refetch()}
+          trigger={
+            <Button size="sm">
+              <Plus className="h-4 w-4 mr-2" />
+              {t("Create Invoice")}
+            </Button>
+          }
+        />
+      </div>
+
       <div className="space-y-4">
         <Table>
           <TableHeader>

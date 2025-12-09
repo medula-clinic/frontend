@@ -38,6 +38,7 @@ import { CreatePrescriptionRequest, Medication } from "@/types";
 interface NewPrescriptionModalProps {
   trigger?: React.ReactNode;
   onSuccess?: () => void;
+  preSelectedPatientId?: string;
 }
 
 interface FormMedication extends Medication {
@@ -47,6 +48,7 @@ interface FormMedication extends Medication {
 const NewPrescriptionModal: React.FC<NewPrescriptionModalProps> = ({
   trigger,
   onSuccess,
+  preSelectedPatientId,
 }) => {
   const [open, setOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -126,8 +128,11 @@ const NewPrescriptionModal: React.FC<NewPrescriptionModalProps> = ({
     if (open) {
       fetchPatients();
       fetchDoctors();
+      if (preSelectedPatientId) {
+        setFormData((prev) => ({ ...prev, patientId: preSelectedPatientId }));
+      }
     }
-  }, [open]);
+  }, [open, preSelectedPatientId]);
 
   // Fetch appointments when patient is selected
   useEffect(() => {

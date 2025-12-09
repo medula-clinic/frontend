@@ -15,6 +15,8 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Eye } from "lucide-react";
 import ViewTestReportModal from "@/components/modals/ViewTestReportModal";
 import { useTestReports } from "@/hooks/useApi";
+import RecordTestReportModal from "@/components/modals/RecordTestReportModal";
+import { Plus } from "lucide-react";
 
 interface PatientTestReportsTabProps {
   patientId?: string;
@@ -66,6 +68,18 @@ const PatientTestReportsTab: React.FC<PatientTestReportsTabProps> = ({ patientId
 
   return (
     <>
+      <div className="flex justify-end mb-4">
+        <RecordTestReportModal
+          preSelectedPatientId={patientId}
+          trigger={
+            <Button size="sm">
+              <Plus className="h-4 w-4 mr-2" />
+              {t("Record Report")}
+            </Button>
+          }
+        />
+      </div>
+
       <div className="space-y-4">
         <Table>
           <TableHeader>

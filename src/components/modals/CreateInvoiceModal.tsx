@@ -38,6 +38,7 @@ import type { Patient, Appointment, Invoice } from "@/services/api";
 interface CreateInvoiceModalProps {
   trigger?: React.ReactNode;
   onSuccess?: () => void;
+  preSelectedPatientId?: string;
 }
 
 interface InvoiceItem {
@@ -49,7 +50,7 @@ interface InvoiceItem {
   type: "service" | "medicine" | "test";
 }
 
-const CreateInvoiceModal: React.FC<CreateInvoiceModalProps> = ({ trigger, onSuccess }) => {
+const CreateInvoiceModal: React.FC<CreateInvoiceModalProps> = ({ trigger, onSuccess, preSelectedPatientId }) => {
   const { formatCurrency } = useCurrencyFormat();
   const [open, setOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -82,8 +83,11 @@ const CreateInvoiceModal: React.FC<CreateInvoiceModalProps> = ({ trigger, onSucc
   useEffect(() => {
     if (open) {
       loadData();
+      if (preSelectedPatientId) {
+        setFormData((prev) => ({ ...prev, patientId: preSelectedPatientId }));
+      }
     }
-  }, [open]);
+  }, [open, preSelectedPatientId]);
 
   const loadData = async () => {
     setLoadingData(true);

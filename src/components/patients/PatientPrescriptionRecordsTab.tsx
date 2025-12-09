@@ -27,6 +27,8 @@ import PrescriptionDetailModal from "@/components/modals/PrescriptionDetailModal
 import EditPrescriptionModal from "@/components/modals/EditPrescriptionModal";
 import { toast } from "@/hooks/use-toast";
 import { generatePrescriptionSlipPDF, type ClinicInfo } from "@/utils/prescriptionSlipPdf";
+import NewPrescriptionModal from "@/components/modals/NewPrescriptionModal";
+import { Plus } from "lucide-react";
 
 interface PatientPrescriptionRecordsTabProps {
   patientId?: string;
@@ -115,6 +117,19 @@ const PatientPrescriptionRecordsTab: React.FC<PatientPrescriptionRecordsTabProps
 
   return (
     <>
+      <div className="flex justify-end mb-4">
+        <NewPrescriptionModal
+          preSelectedPatientId={patientId}
+          onSuccess={() => refetch()}
+          trigger={
+            <Button size="sm">
+              <Plus className="h-4 w-4 mr-2" />
+              {t("New Prescription")}
+            </Button>
+          }
+        />
+      </div>
+
       <div className="space-y-4">
         <Table>
           <TableHeader>
