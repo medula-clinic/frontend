@@ -1134,6 +1134,7 @@ export const useTestReports = (params?: {
   page?: number;
   limit?: number;
   search?: string;
+  patient_id?: string;
   status?: string;
   vendor?: string;
   category?: string;
