@@ -113,8 +113,14 @@ const RecordTestReportModal: React.FC<RecordTestReportModalProps> = ({
   useEffect(() => {
     if (open && preSelectedPatientId) {
       handlePatientSelect(preSelectedPatientId);
+      if (preSelectedPatient) {
+        setPatients((prev) => {
+          const exists = prev.find((p) => p._id === preSelectedPatient._id);
+          return exists ? prev : [preSelectedPatient, ...prev];
+        });
+      }
     }
-  }, [open, preSelectedPatientId]);
+  }, [open, preSelectedPatientId, preSelectedPatient]);
 
   const fetchData = async () => {
     setDataLoading(true);

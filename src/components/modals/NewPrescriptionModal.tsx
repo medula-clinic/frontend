@@ -138,9 +138,15 @@ const NewPrescriptionModal: React.FC<NewPrescriptionModalProps> = ({
       fetchDoctors();
       if (preSelectedPatientId) {
         setFormData((prev) => ({ ...prev, patientId: preSelectedPatientId }));
+        if (preSelectedPatient) {
+          setPatients((prev) => {
+            const exists = prev.find((p) => p._id === preSelectedPatient._id);
+            return exists ? prev : [preSelectedPatient, ...prev];
+          });
+        }
       }
     }
-  }, [open, preSelectedPatientId]);
+  }, [open, preSelectedPatientId, preSelectedPatient]);
 
   // Fetch appointments when patient is selected
   useEffect(() => {

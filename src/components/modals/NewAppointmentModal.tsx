@@ -107,8 +107,14 @@ const NewAppointmentModal: React.FC<NewAppointmentModalProps> = ({
   useEffect(() => {
     if (preSelectedPatientId && open) {
       setFormData(prev => ({ ...prev, patientId: preSelectedPatientId }));
+      if (preSelectedPatient) {
+        setPatients((prev) => {
+          const exists = prev.find((p) => p._id === preSelectedPatient._id);
+          return exists ? prev : [preSelectedPatient, ...prev];
+        });
+      }
     }
-  }, [preSelectedPatientId, open]);
+  }, [preSelectedPatientId, preSelectedPatient, open]);
 
   const loadData = async () => {
     setLoadingData(true);
