@@ -32,6 +32,13 @@ import { Plus } from "lucide-react";
 
 interface PatientPrescriptionRecordsTabProps {
   patientId?: string;
+  patient?: {
+    id: string;
+    firstName: string;
+    lastName: string;
+    phone?: string;
+    dateOfBirth?: Date;
+  };
 }
 
 const formatDate = (dateValue: string | Date) => {
@@ -45,6 +52,7 @@ const formatDate = (dateValue: string | Date) => {
 
 const PatientPrescriptionRecordsTab: React.FC<PatientPrescriptionRecordsTabProps> = ({
   patientId,
+  patient,
 }) => {
   const { t } = useTranslation();
   const { currentClinic } = useClinic();
@@ -120,6 +128,17 @@ const PatientPrescriptionRecordsTab: React.FC<PatientPrescriptionRecordsTabProps
       <div className="flex justify-end mb-4">
         <NewPrescriptionModal
           preSelectedPatientId={patientId}
+          preSelectedPatient={
+            patient
+              ? {
+                  _id: patient.id,
+                  first_name: patient.firstName,
+                  last_name: patient.lastName,
+                  phone: patient.phone,
+                  date_of_birth: patient.dateOfBirth,
+                }
+              : undefined
+          }
           onSuccess={() => refetch()}
           trigger={
             <Button size="sm">

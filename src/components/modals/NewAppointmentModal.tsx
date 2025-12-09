@@ -31,6 +31,12 @@ import { serviceApi } from "@/services/api/serviceApi";
 interface NewAppointmentModalProps {
   trigger?: React.ReactNode;
   preSelectedPatientId?: string;
+  preSelectedPatient?: {
+    _id: string;
+    first_name: string;
+    last_name: string;
+    phone?: string;
+  };
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
 }
@@ -38,6 +44,7 @@ interface NewAppointmentModalProps {
 const NewAppointmentModal: React.FC<NewAppointmentModalProps> = ({
   trigger,
   preSelectedPatientId,
+  preSelectedPatient,
   open: externalOpen,
   onOpenChange: externalOnOpenChange,
 }) => {
@@ -113,7 +120,14 @@ const NewAppointmentModal: React.FC<NewAppointmentModalProps> = ({
         serviceApi.getServices({ isActive: true, limit: 100 })
       ]);
 
-      setPatients(patientsResponse.data.patients);
+      const fetchedPatients = patientsResponse.data.patients;
+      const mergedPatients = preSelectedPatient
+        ? [
+            preSelectedPatient,
+            ...fetchedPatients.filter((p: any) => p._id !== preSelectedPatient._id),
+          ]
+        : fetchedPatients;
+      setPatients(mergedPatients);
       setDoctors(doctorsResponse.data.items);
       setNurses(nursesResponse.data.items);
       setServices(servicesResponse.data);
@@ -327,9 +341,9 @@ const NewAppointmentModal: React.FC<NewAppointmentModalProps> = ({
                       <Label htmlFor="patientId" className="text-sm font-medium">Patient *</Label>
                       <Select
                         value={formData.patientId}
-                        onValueChange={(value) => handleChange("patientId", value)}
-                        disabled={loadingData || !!preSelectedPatientId}
-                      >
+                    onValueChange={(value) => handleChange("patientId", value)}
+                    disabled={loadingData || !!preSelectedPatientId}
+                  >
                         <SelectTrigger className="h-9 sm:h-10">
                           <SelectValue placeholder={loadingData ? "Loading patients..." : "Select a patient"} />
                         </SelectTrigger>

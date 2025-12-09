@@ -45,6 +45,12 @@ import { AppointmentSlipPDFGenerator, convertToAppointmentSlipData, type ClinicI
 interface PatientAppointmentHistoryTabProps {
   patientId?: string;
   patientName?: string;
+  patient?: {
+    id: string;
+    firstName: string;
+    lastName: string;
+    phone?: string;
+  };
 }
 
 const formatDate = (dateValue: string | Date) => {
@@ -81,6 +87,7 @@ const statusColor = (status: string) => {
 const PatientAppointmentHistoryTab: React.FC<PatientAppointmentHistoryTabProps> = ({
   patientId,
   patientName,
+  patient,
 }) => {
   const { t } = useTranslation();
   const [selectedAppointment, setSelectedAppointment] = useState<any | null>(null);
@@ -217,6 +224,16 @@ const PatientAppointmentHistoryTab: React.FC<PatientAppointmentHistoryTabProps> 
       <div className="flex justify-end mb-4">
         <NewAppointmentModal
           preSelectedPatientId={patientId}
+          preSelectedPatient={
+            patient
+              ? {
+                  _id: patient.id,
+                  first_name: patient.firstName,
+                  last_name: patient.lastName,
+                  phone: patient.phone,
+                }
+              : undefined
+          }
           trigger={
             <Button size="sm">
               <Plus className="h-4 w-4 mr-2" />
