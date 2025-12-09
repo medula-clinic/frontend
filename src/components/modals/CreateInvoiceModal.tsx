@@ -299,6 +299,7 @@ const CreateInvoiceModal: React.FC<CreateInvoiceModalProps> = ({ trigger, onSucc
                   <Select
                     value={formData.patientId}
                     onValueChange={(value) => handleChange("patientId", value)}
+                    disabled={loadingData || !!preSelectedPatientId}
                   >
                     <SelectTrigger>
                       <SelectValue placeholder="Choose a patient" />

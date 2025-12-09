@@ -431,7 +431,7 @@ const NewPrescriptionModal: React.FC<NewPrescriptionModalProps> = ({
                   <Select
                     value={formData.patientId}
                     onValueChange={(value) => handleChange("patientId", value)}
-                    disabled={patientsLoading}
+                    disabled={patientsLoading || !!preSelectedPatientId}
                   >
                     <SelectTrigger>
                       <SelectValue placeholder={patientsLoading ? "Loading patients..." : "Choose a patient"} />

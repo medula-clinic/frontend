@@ -328,7 +328,7 @@ const NewAppointmentModal: React.FC<NewAppointmentModalProps> = ({
                       <Select
                         value={formData.patientId}
                         onValueChange={(value) => handleChange("patientId", value)}
-                        disabled={loadingData}
+                        disabled={loadingData || !!preSelectedPatientId}
                       >
                         <SelectTrigger className="h-9 sm:h-10">
                           <SelectValue placeholder={loadingData ? "Loading patients..." : "Select a patient"} />
@@ -578,4 +578,3 @@ const NewAppointmentModal: React.FC<NewAppointmentModalProps> = ({
 };
 
 export default NewAppointmentModal;
-

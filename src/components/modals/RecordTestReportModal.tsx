@@ -357,6 +357,7 @@ const RecordTestReportModal: React.FC<RecordTestReportModalProps> = ({
                   <Select
                     value={formData.patientId}
                     onValueChange={handlePatientSelect}
+                    disabled={dataLoading || !!preSelectedPatientId}
                   >
                     <SelectTrigger>
                       <SelectValue placeholder="Select patient" />
