@@ -39,6 +39,12 @@ interface CreateInvoiceModalProps {
   trigger?: React.ReactNode;
   onSuccess?: () => void;
   preSelectedPatientId?: string;
+  preSelectedPatient?: {
+    _id: string;
+    first_name: string;
+    last_name: string;
+    phone?: string;
+  };
 }
 
 interface InvoiceItem {
@@ -50,7 +56,7 @@ interface InvoiceItem {
   type: "service" | "medicine" | "test";
 }
 
-const CreateInvoiceModal: React.FC<CreateInvoiceModalProps> = ({ trigger, onSuccess, preSelectedPatientId }) => {
+const CreateInvoiceModal: React.FC<CreateInvoiceModalProps> = ({ trigger, onSuccess, preSelectedPatientId, preSelectedPatient }) => {
   const { formatCurrency } = useCurrencyFormat();
   const [open, setOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -98,7 +104,14 @@ const CreateInvoiceModal: React.FC<CreateInvoiceModalProps> = ({ trigger, onSucc
       ]);
 
       // Safely handle the response data with fallbacks
-      setPatients(patientsResponse?.data?.patients || []);
+      const fetchedPatients = patientsResponse?.data?.patients || [];
+      const mergedPatients = preSelectedPatient
+        ? [
+            preSelectedPatient,
+            ...fetchedPatients.filter((p: any) => p._id !== preSelectedPatient._id),
+          ]
+        : fetchedPatients;
+      setPatients(mergedPatients);
       setAppointments(appointmentsResponse?.data?.items || appointmentsResponse?.data?.appointments || []);
     } catch (error) {
       console.error('Error loading data:', error);

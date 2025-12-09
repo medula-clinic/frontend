@@ -20,6 +20,11 @@ import { Plus } from "lucide-react";
 
 interface PatientTestReportsTabProps {
   patientId?: string;
+  patient?: {
+    id: string;
+    firstName: string;
+    lastName: string;
+  };
 }
 
 const formatDate = (dateValue: string | Date) => {
@@ -44,7 +49,7 @@ const statusColor = (status: string) => {
   }
 };
 
-const PatientTestReportsTab: React.FC<PatientTestReportsTabProps> = ({ patientId }) => {
+const PatientTestReportsTab: React.FC<PatientTestReportsTabProps> = ({ patientId, patient }) => {
   const { t } = useTranslation();
   const [viewId, setViewId] = useState<string | null>(null);
 
@@ -71,6 +76,15 @@ const PatientTestReportsTab: React.FC<PatientTestReportsTabProps> = ({ patientId
       <div className="flex justify-end mb-4">
         <RecordTestReportModal
           preSelectedPatientId={patientId}
+          preSelectedPatient={
+            patient
+              ? {
+                  _id: patient.id,
+                  first_name: patient.firstName,
+                  last_name: patient.lastName,
+                }
+              : undefined
+          }
           trigger={
             <Button size="sm">
               <Plus className="h-4 w-4 mr-2" />

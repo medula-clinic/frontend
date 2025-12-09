@@ -43,6 +43,14 @@ interface RecordTestReportModalProps {
   trigger?: React.ReactNode;
   onReportRecorded?: () => void;
   preSelectedPatientId?: string;
+  preSelectedPatient?: {
+    _id: string;
+    first_name: string;
+    last_name: string;
+    phone?: string;
+    date_of_birth?: any;
+    gender?: string;
+  };
 }
 
 interface UploadedFile {
@@ -57,6 +65,7 @@ const RecordTestReportModal: React.FC<RecordTestReportModalProps> = ({
   trigger,
   onReportRecorded,
   preSelectedPatientId,
+  preSelectedPatient,
 }) => {
   const [open, setOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -116,7 +125,15 @@ const RecordTestReportModal: React.FC<RecordTestReportModalProps> = ({
         apiService.getUsers({ limit: 100 }),
       ]);
 
-      setPatients(patientsResponse.data?.patients || []);
+      const fetchedPatients = patientsResponse.data?.patients || [];
+      const mergedPatients = preSelectedPatient
+        ? [
+            preSelectedPatient,
+            ...fetchedPatients.filter((p: any) => p._id !== preSelectedPatient._id),
+          ]
+        : fetchedPatients;
+
+      setPatients(mergedPatients);
       setTests(testsResponse.data?.items || []);
       setUsers(usersResponse.data?.users || []);
     } catch (error) {

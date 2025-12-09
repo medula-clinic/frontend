@@ -105,6 +105,7 @@ const PatientDetailsModal: React.FC<PatientDetailsModalProps> = ({
                   <PatientAppointmentHistoryTab
                     patientId={patient.id}
                     patientName={`${patient.firstName || ""} ${patient.lastName || ""}`.trim()}
+                    patient={patient}
                   />
                 ) : (
                   <p className="text-sm text-muted-foreground">Select a patient to view appointment history.</p>
@@ -113,7 +114,7 @@ const PatientDetailsModal: React.FC<PatientDetailsModalProps> = ({
 
               <TabsContent value="prescriptions" className="mt-4">
                 {patient?.id ? (
-                  <PatientPrescriptionRecordsTab patientId={patient.id} />
+                  <PatientPrescriptionRecordsTab patientId={patient.id} patient={patient} />
                 ) : (
                   <p className="text-sm text-muted-foreground">Select a patient to view prescriptions.</p>
                 )}
@@ -121,7 +122,7 @@ const PatientDetailsModal: React.FC<PatientDetailsModalProps> = ({
 
               <TabsContent value="tests" className="mt-4">
                 {patient?.id ? (
-                  <PatientTestReportsTab patientId={patient.id} />
+                  <PatientTestReportsTab patientId={patient.id} patient={patient} />
                 ) : (
                   <p className="text-sm text-muted-foreground">Select a patient to view test reports.</p>
                 )}
@@ -129,7 +130,7 @@ const PatientDetailsModal: React.FC<PatientDetailsModalProps> = ({
 
               <TabsContent value="invoices" className="mt-4">
                 {patient?.id ? (
-                  <PatientInvoicesTab patientId={patient.id} />
+                  <PatientInvoicesTab patientId={patient.id} patient={patient} />
                 ) : (
                   <p className="text-sm text-muted-foreground">Select a patient to view invoices.</p>
                 )}

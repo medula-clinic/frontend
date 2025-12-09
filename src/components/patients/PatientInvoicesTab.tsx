@@ -34,6 +34,12 @@ import { Plus } from "lucide-react";
 
 interface PatientInvoicesTabProps {
   patientId?: string;
+  patient?: {
+    id: string;
+    firstName: string;
+    lastName: string;
+    phone?: string;
+  };
 }
 
 const formatDate = (dateValue: string | Date) => {
@@ -60,7 +66,7 @@ const statusBadge = (status: string) => {
   }
 };
 
-const PatientInvoicesTab: React.FC<PatientInvoicesTabProps> = ({ patientId }) => {
+const PatientInvoicesTab: React.FC<PatientInvoicesTabProps> = ({ patientId, patient }) => {
   const { t } = useTranslation();
   const { currentClinic } = useClinic();
 
@@ -134,6 +140,16 @@ const PatientInvoicesTab: React.FC<PatientInvoicesTabProps> = ({ patientId }) =>
       <div className="flex justify-end mb-4">
         <CreateInvoiceModal
           preSelectedPatientId={patientId}
+          preSelectedPatient={
+            patient
+              ? {
+                  _id: patient.id,
+                  first_name: patient.firstName,
+                  last_name: patient.lastName,
+                  phone: patient.phone,
+                }
+              : undefined
+          }
           onSuccess={() => refetch()}
           trigger={
             <Button size="sm">

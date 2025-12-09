@@ -39,6 +39,13 @@ interface NewPrescriptionModalProps {
   trigger?: React.ReactNode;
   onSuccess?: () => void;
   preSelectedPatientId?: string;
+  preSelectedPatient?: {
+    _id: string;
+    first_name: string;
+    last_name: string;
+    phone?: string;
+    date_of_birth?: any;
+  };
 }
 
 interface FormMedication extends Medication {
@@ -49,6 +56,7 @@ const NewPrescriptionModal: React.FC<NewPrescriptionModalProps> = ({
   trigger,
   onSuccess,
   preSelectedPatientId,
+  preSelectedPatient,
 }) => {
   const [open, setOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -150,7 +158,14 @@ const NewPrescriptionModal: React.FC<NewPrescriptionModalProps> = ({
       setPatientsLoading(true);
       const response = await apiService.getPatients({ limit: 100 });
       if (response.success && response.data) {
-        setPatients(response.data.patients || []);
+        const fetched = response.data.patients || [];
+        const merged = preSelectedPatient
+          ? [
+              preSelectedPatient,
+              ...fetched.filter((p: any) => p._id !== preSelectedPatient._id),
+            ]
+          : fetched;
+        setPatients(merged);
       }
     } catch (error) {
       console.error("Error fetching patients:", error);
