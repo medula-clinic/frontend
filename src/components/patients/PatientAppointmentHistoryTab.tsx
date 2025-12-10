@@ -17,13 +17,6 @@ import {
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { useAppointments, useUpdateAppointment } from "@/hooks/useApi";
 import { useClinic } from "@/contexts/ClinicContext";
@@ -41,6 +34,8 @@ import {
 } from "lucide-react";
 import NewAppointmentModal from "@/components/modals/NewAppointmentModal";
 import { AppointmentSlipPDFGenerator, convertToAppointmentSlipData, type ClinicInfo } from "@/utils/appointmentSlipPdf";
+import AppointmentViewModal from "@/components/modals/AppointmentViewModal";
+import AppointmentEditModal from "@/components/modals/AppointmentEditModal";
 
 interface PatientAppointmentHistoryTabProps {
   patientId?: string;
@@ -92,17 +87,10 @@ const PatientAppointmentHistoryTab: React.FC<PatientAppointmentHistoryTabProps> 
   const { t } = useTranslation();
   const [selectedAppointment, setSelectedAppointment] = useState<any | null>(null);
   const [editAppointment, setEditAppointment] = useState<any | null>(null);
-  const [editForm, setEditForm] = useState({
-    date: "",
-    time: "",
-    type: "",
-    duration: "",
-    notes: "",
-  });
   const { currentClinic } = useClinic();
   const updateAppointment = useUpdateAppointment();
 
-  const { data, isLoading, error } = useAppointments(
+  const { data, isLoading, error, refetch } = useAppointments(
     patientId
       ? {
           patient_id: patientId,
@@ -111,10 +99,30 @@ const PatientAppointmentHistoryTab: React.FC<PatientAppointmentHistoryTabProps> 
       : undefined
   );
 
-  const appointments = useMemo(
-    () => (data as any)?.data?.appointments || [],
-    [data]
-  );
+  const appointments = useMemo(() => {
+    const raw = (data as any)?.data?.appointments || [];
+    return raw.map((apt: any) => {
+      const patientObj = apt.patient_id || apt.patient;
+      const doctorObj = apt.doctor_id || apt.doctor;
+      return {
+        ...apt,
+        date: new Date(apt.appointment_date || apt.date),
+        patient: patientObj
+          ? {
+              name: `${patientObj.first_name || ""} ${patientObj.last_name || ""}`.trim(),
+              phone: patientObj.phone,
+              email: patientObj.email,
+            }
+          : apt.patient,
+        doctor: doctorObj
+          ? {
+              name: `${doctorObj.first_name || ""} ${doctorObj.last_name || ""}`.trim(),
+              specialty: doctorObj.role === "doctor" ? "General Medicine" : doctorObj.role,
+            }
+          : apt.doctor,
+      };
+    });
+  }, [data]);
 
   const handleDownloadSlip = async (appointment: any) => {
     try {
@@ -179,39 +187,6 @@ const PatientAppointmentHistoryTab: React.FC<PatientAppointmentHistoryTabProps> 
       });
     } catch (err) {
       console.error("Cancel appointment error:", err);
-    }
-  };
-
-  const openEdit = (appointment: any) => {
-    const date = new Date(appointment.appointment_date || appointment.date);
-    setEditForm({
-      date: date.toISOString().split("T")[0],
-      time: date.toTimeString().slice(0, 5),
-      type: appointment.type || "consultation",
-      duration: (appointment.duration || 30).toString(),
-      notes: appointment.notes || "",
-    });
-    setEditAppointment(appointment);
-  };
-
-  const submitEdit = async () => {
-    if (!editAppointment) return;
-    const [year, month, day] = editForm.date.split("-").map(Number);
-    const [hours, minutes] = editForm.time.split(":").map(Number);
-    const appointmentDateTime = new Date(year, month - 1, day, hours, minutes);
-    try {
-      await updateAppointment.mutateAsync({
-        id: editAppointment._id,
-        data: {
-          appointment_date: appointmentDateTime.toISOString(),
-          type: editForm.type,
-          duration: parseInt(editForm.duration) || 30,
-          notes: editForm.notes,
-        },
-      });
-      setEditAppointment(null);
-    } catch (err) {
-      console.error("Edit appointment error:", err);
     }
   };
 
@@ -293,33 +268,33 @@ const PatientAppointmentHistoryTab: React.FC<PatientAppointmentHistoryTabProps> 
                       <TableCell>
                         <Badge variant="secondary" className={`${statusColor(appointment.status)} capitalize`}>
                           {appointment.status || t("scheduled")}
-                        </Badge>
-                      </TableCell>
-                      <TableCell className="text-right">
-                        <DropdownMenu>
-                          <DropdownMenuTrigger asChild>
-                            <Button variant="outline" size="sm" className="h-8">
-                              <MoreVertical className="h-4 w-4 mr-1" />
-                              {t("Actions")}
-                            </Button>
-                          </DropdownMenuTrigger>
-                          <DropdownMenuContent align="end">
-                            <DropdownMenuItem onClick={() => setSelectedAppointment(appointment)}>
-                              <Eye className="mr-2 h-4 w-4" />
-                              {t("View Details")}
-                            </DropdownMenuItem>
-                            <DropdownMenuItem onClick={() => openEdit(appointment)}>
-                              <Pencil className="mr-2 h-4 w-4" />
-                              {t("Edit")}
-                            </DropdownMenuItem>
-                            <DropdownMenuItem onClick={() => handleDownloadSlip(appointment)}>
-                              <Download className="mr-2 h-4 w-4" />
-                              {t("Download Slip")}
-                            </DropdownMenuItem>
-                            <DropdownMenuItem onClick={() => handleMarkComplete(appointment)}>
-                              <CheckCircle className="mr-2 h-4 w-4" />
-                              {t("Mark Complete")}
-                            </DropdownMenuItem>
+                          </Badge>
+                        </TableCell>
+                        <TableCell className="text-right">
+                          <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                              <Button variant="outline" size="sm" className="h-8">
+                                <MoreVertical className="h-4 w-4 mr-1" />
+                                {t("Actions")}
+                              </Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent align="end">
+                              <DropdownMenuItem onClick={() => setSelectedAppointment(appointment)}>
+                                <Eye className="mr-2 h-4 w-4" />
+                                {t("View Details")}
+                              </DropdownMenuItem>
+                            <DropdownMenuItem onClick={() => setEditAppointment(appointment)}>
+                                <Pencil className="mr-2 h-4 w-4" />
+                                {t("Edit")}
+                              </DropdownMenuItem>
+                              <DropdownMenuItem onClick={() => handleDownloadSlip(appointment)}>
+                                <Download className="mr-2 h-4 w-4" />
+                                {t("Download Slip")}
+                              </DropdownMenuItem>
+                              <DropdownMenuItem onClick={() => handleMarkComplete(appointment)}>
+                                <CheckCircle className="mr-2 h-4 w-4" />
+                                {t("Mark Complete")}
+                              </DropdownMenuItem>
                             <DropdownMenuItem onClick={() => handleCancel(appointment)} className="text-destructive">
                               <XCircle className="mr-2 h-4 w-4" />
                               {t("Cancel")}
@@ -335,137 +310,23 @@ const PatientAppointmentHistoryTab: React.FC<PatientAppointmentHistoryTabProps> 
         </Table>
       </div>
 
-      <Dialog open={!!selectedAppointment} onOpenChange={(open) => !open && setSelectedAppointment(null)}>
-        <DialogContent className="max-w-2xl">
-          <DialogHeader>
-            <DialogTitle>{t("Appointment Details")}</DialogTitle>
-            <DialogDescription>
-              {patientName || t("Patient")} • {selectedAppointment ? formatDate(selectedAppointment.appointment_date || selectedAppointment.date) : ""}
-            </DialogDescription>
-          </DialogHeader>
-          {selectedAppointment && (
-            <div className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">{t("Doctor")}</h4>
-                  <p className="text-base font-medium">
-                    {selectedAppointment.doctor_id
-                      ? `${selectedAppointment.doctor_id.first_name} ${selectedAppointment.doctor_id.last_name}`
-                      : t("Unassigned")}
-                  </p>
-                </div>
-                <div>
-                  <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">{t("Type")}</h4>
-                  <p className="text-base font-medium capitalize">{selectedAppointment.type}</p>
-                </div>
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="flex items-center space-x-2">
-                  <Calendar className="h-4 w-4 text-primary" />
-                  <div>
-                    <p className="text-xs text-muted-foreground">{t("Date")}</p>
-                    <p className="font-medium">{formatDate(selectedAppointment.appointment_date || selectedAppointment.date)}</p>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <Clock className="h-4 w-4 text-primary" />
-                  <div>
-                    <p className="text-xs text-muted-foreground">{t("Time")}</p>
-                    <p className="font-medium">
-                      {formatTime(selectedAppointment.appointment_date || selectedAppointment.date)}
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Stethoscope className="h-4 w-4 text-primary" />
-                <div>
-                  <p className="text-xs text-muted-foreground">{t("Status")}</p>
-                  <Badge variant="secondary" className={`${statusColor(selectedAppointment.status)} capitalize`}>
-                    {selectedAppointment.status}
-                  </Badge>
-                </div>
-              </div>
-              {selectedAppointment.notes && (
-                <div>
-                  <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">{t("Notes")}</h4>
-                  <p className="text-sm text-foreground bg-muted p-3 rounded-lg">{selectedAppointment.notes}</p>
-                </div>
-              )}
-            </div>
-          )}
-        </DialogContent>
-      </Dialog>
+      <AppointmentViewModal
+        open={!!selectedAppointment}
+        appointment={selectedAppointment}
+        onOpenChange={(open) => !open && setSelectedAppointment(null)}
+        onDownloadSlip={handleDownloadSlip}
+      />
 
-      <Dialog open={!!editAppointment} onOpenChange={(open) => !open && setEditAppointment(null)}>
-        <DialogContent className="max-w-md">
-          <DialogHeader>
-            <DialogTitle>{t("Edit Appointment")}</DialogTitle>
-            <DialogDescription>{t("Update appointment details for this patient")}</DialogDescription>
-          </DialogHeader>
-          <div className="space-y-3">
-            <div className="grid grid-cols-2 gap-3">
-              <div>
-                <label className="text-xs text-muted-foreground">{t("Date")}</label>
-                <input
-                  type="date"
-                  className="w-full border rounded-md px-3 py-2"
-                  value={editForm.date}
-                  onChange={(e) => setEditForm((prev) => ({ ...prev, date: e.target.value }))}
-                />
-              </div>
-              <div>
-                <label className="text-xs text-muted-foreground">{t("Time")}</label>
-                <input
-                  type="time"
-                  className="w-full border rounded-md px-3 py-2"
-                  value={editForm.time}
-                  onChange={(e) => setEditForm((prev) => ({ ...prev, time: e.target.value }))}
-                />
-              </div>
-            </div>
-            <div className="grid grid-cols-2 gap-3">
-              <div>
-                <label className="text-xs text-muted-foreground">{t("Type")}</label>
-                <input
-                  type="text"
-                  className="w-full border rounded-md px-3 py-2"
-                  value={editForm.type}
-                  onChange={(e) => setEditForm((prev) => ({ ...prev, type: e.target.value }))}
-                />
-              </div>
-              <div>
-                <label className="text-xs text-muted-foreground">{t("Duration (minutes)")}</label>
-                <input
-                  type="number"
-                  className="w-full border rounded-md px-3 py-2"
-                  value={editForm.duration}
-                  onChange={(e) => setEditForm((prev) => ({ ...prev, duration: e.target.value }))}
-                  min={15}
-                  max={240}
-                />
-              </div>
-            </div>
-            <div>
-              <label className="text-xs text-muted-foreground">{t("Notes")}</label>
-              <textarea
-                className="w-full border rounded-md px-3 py-2"
-                rows={3}
-                value={editForm.notes}
-                onChange={(e) => setEditForm((prev) => ({ ...prev, notes: e.target.value }))}
-              />
-            </div>
-          </div>
-          <div className="flex justify-end gap-2 mt-4">
-            <Button variant="outline" onClick={() => setEditAppointment(null)}>
-              {t("Cancel")}
-            </Button>
-            <Button onClick={submitEdit} disabled={updateAppointment.isPending}>
-              {t("Save")}
-            </Button>
-          </div>
-        </DialogContent>
-      </Dialog>
+      <AppointmentEditModal
+        open={!!editAppointment}
+        appointment={editAppointment}
+        lockedPatientId={patientId}
+        onOpenChange={(open) => setEditAppointment(open ? editAppointment : null)}
+        onSaved={() => {
+          setEditAppointment(null);
+          refetch();
+        }}
+      />
     </>
   );
 };
