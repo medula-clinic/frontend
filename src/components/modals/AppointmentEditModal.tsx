@@ -28,6 +28,9 @@ interface AppointmentEditModalProps {
   onOpenChange: (open: boolean) => void;
   lockedPatientId?: string;
   onSaved?: () => void;
+  preselectedPatient?: any;
+  preselectedDoctor?: any;
+  preselectedNurse?: any;
 }
 
 interface EditForm {
@@ -48,6 +51,9 @@ const AppointmentEditModal: React.FC<AppointmentEditModalProps> = ({
   onOpenChange,
   lockedPatientId,
   onSaved,
+  preselectedPatient,
+  preselectedDoctor,
+  preselectedNurse,
 }) => {
   const { t } = useTranslation();
   const updateAppointment = useUpdateAppointment();
@@ -117,9 +123,9 @@ const AppointmentEditModal: React.FC<AppointmentEditModalProps> = ({
       ]);
 
       setEditModalData({
-        patients: patientsResponse.data.patients || [],
-        doctors: doctorsResponse.data.items || [],
-        nurses: nursesResponse.data.items || [],
+        patients: mergeEntity(patientsResponse.data.patients || [], preselectedPatient),
+        doctors: mergeEntity(doctorsResponse.data.items || [], preselectedDoctor),
+        nurses: mergeEntity(nursesResponse.data.items || [], preselectedNurse),
         services: servicesResponse.data || [],
         loading: false,
       });
@@ -132,6 +138,12 @@ const AppointmentEditModal: React.FC<AppointmentEditModalProps> = ({
         variant: "destructive",
       });
     }
+  };
+
+  const mergeEntity = (list: any[], entity?: any) => {
+    if (!entity) return list;
+    const exists = list.find((item) => item._id === entity._id);
+    return exists ? list : [entity, ...list];
   };
 
   const handleSave = async () => {
@@ -409,12 +421,25 @@ const AppointmentEditModal: React.FC<AppointmentEditModalProps> = ({
               </div>
               <div className="space-y-2">
                 <Label htmlFor="edit-type">{t("Type")}</Label>
-                <Input
-                  id="edit-type"
-                  type="text"
+                <Select
                   value={editFormData.type}
-                  onChange={(e) => setEditFormData((prev) => ({ ...prev, type: e.target.value }))}
-                />
+                  onValueChange={(value) => setEditFormData((prev) => ({ ...prev, type: value }))}
+                >
+                  <SelectTrigger>
+                    <SelectValue placeholder={t("Select type")} />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="consultation">{t("Consultation")}</SelectItem>
+                    <SelectItem value="follow-up">{t("Follow-up")}</SelectItem>
+                    <SelectItem value="check-up">{t("Check-up")}</SelectItem>
+                    <SelectItem value="vaccination">{t("Vaccination")}</SelectItem>
+                    <SelectItem value="procedure">{t("Procedure")}</SelectItem>
+                    <SelectItem value="emergency">{t("Emergency")}</SelectItem>
+                    <SelectItem value="screening">{t("Screening")}</SelectItem>
+                    <SelectItem value="therapy">{t("Therapy")}</SelectItem>
+                    <SelectItem value="other">{t("Other")}</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
             </div>
 

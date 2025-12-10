@@ -174,6 +174,7 @@ const PatientAppointmentHistoryTab: React.FC<PatientAppointmentHistoryTabProps> 
         id: appointment._id,
         data: { status: "completed" },
       });
+      refetch();
     } catch (err) {
       console.error("Mark complete error:", err);
     }
@@ -185,6 +186,7 @@ const PatientAppointmentHistoryTab: React.FC<PatientAppointmentHistoryTabProps> 
         id: appointment._id,
         data: { status: "cancelled" },
       });
+      refetch();
     } catch (err) {
       console.error("Cancel appointment error:", err);
     }
@@ -326,6 +328,45 @@ const PatientAppointmentHistoryTab: React.FC<PatientAppointmentHistoryTabProps> 
           setEditAppointment(null);
           refetch();
         }}
+        preselectedPatient={
+          patient
+            ? {
+                _id: patient.id,
+                first_name: patient.firstName,
+                last_name: patient.lastName,
+                phone: patient.phone,
+              }
+            : editAppointment?.patient_id
+              ? {
+                  _id: editAppointment.patient_id._id,
+                  first_name: editAppointment.patient_id.first_name,
+                  last_name: editAppointment.patient_id.last_name,
+                  phone: editAppointment.patient_id.phone,
+                }
+              : undefined
+        }
+        preselectedDoctor={
+          editAppointment?.doctor_id && typeof editAppointment.doctor_id !== "string"
+            ? {
+                _id: editAppointment.doctor_id._id,
+                first_name: editAppointment.doctor_id.first_name,
+                last_name: editAppointment.doctor_id.last_name,
+                phone: editAppointment.doctor_id.phone,
+                role: editAppointment.doctor_id.role,
+              }
+            : undefined
+        }
+        preselectedNurse={
+          editAppointment?.nurse_id && typeof editAppointment.nurse_id !== "string"
+            ? {
+                _id: editAppointment.nurse_id._id,
+                first_name: editAppointment.nurse_id.first_name,
+                last_name: editAppointment.nurse_id.last_name,
+                phone: editAppointment.nurse_id.phone,
+                role: editAppointment.nurse_id.role,
+              }
+            : undefined
+        }
       />
     </>
   );
