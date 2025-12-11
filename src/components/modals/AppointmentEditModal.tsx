@@ -87,16 +87,22 @@ const AppointmentEditModal: React.FC<AppointmentEditModalProps> = ({
     const aptDate = new Date(apt.appointment_date || apt.date);
     const patientId =
       apt.patientId ||
-      apt.patient_id ||
-      (typeof apt.patient === "string" ? apt.patient : apt.patient?._id);
+      apt.patient_id?._id ||
+      apt.patient_id?.id ||
+      (typeof apt.patient_id === "string" ? apt.patient_id : undefined) ||
+      (typeof apt.patient === "string" ? apt.patient : apt.patient?._id || apt.patient?.id);
     const doctorId =
       apt.doctorId ||
-      apt.doctor_id ||
-      (typeof apt.doctor === "string" ? apt.doctor : apt.doctor?._id);
+      apt.doctor_id?._id ||
+      apt.doctor_id?.id ||
+      (typeof apt.doctor_id === "string" ? apt.doctor_id : undefined) ||
+      (typeof apt.doctor === "string" ? apt.doctor : apt.doctor?._id || apt.doctor?.id);
     const nurseId =
       apt.nurseId ||
-      apt.nurse_id ||
-      (typeof apt.nurse === "string" ? apt.nurse : apt.nurse?._id) ||
+      apt.nurse_id?._id ||
+      apt.nurse_id?.id ||
+      (typeof apt.nurse_id === "string" ? apt.nurse_id : undefined) ||
+      (typeof apt.nurse === "string" ? apt.nurse : apt.nurse?._id || apt.nurse?.id) ||
       "none";
 
     setEditFormData({
@@ -142,7 +148,8 @@ const AppointmentEditModal: React.FC<AppointmentEditModalProps> = ({
 
   const mergeEntity = (list: any[], entity?: any) => {
     if (!entity) return list;
-    const exists = list.find((item) => item._id === entity._id);
+    const entityId = entity._id || entity.id;
+    const exists = list.find((item) => (item._id || item.id) === entityId);
     return exists ? list : [entity, ...list];
   };
 

@@ -104,8 +104,20 @@ const PatientAppointmentHistoryTab: React.FC<PatientAppointmentHistoryTabProps> 
     return raw.map((apt: any) => {
       const patientObj = apt.patient_id || apt.patient;
       const doctorObj = apt.doctor_id || apt.doctor;
+      const nurseObj = apt.nurse_id || apt.nurse;
+      const doctorId =
+        (doctorObj && (doctorObj._id || doctorObj.id)) ||
+        (typeof apt.doctor_id === "string" ? apt.doctor_id : undefined);
+      const nurseId =
+        (nurseObj && (nurseObj._id || nurseObj.id)) ||
+        (typeof apt.nurse_id === "string" ? apt.nurse_id : undefined);
       return {
         ...apt,
+        patient_id: patientObj,
+        doctor_id: doctorObj,
+        nurse_id: nurseObj,
+        doctorId,
+        nurseId,
         date: new Date(apt.appointment_date || apt.date),
         patient: patientObj
           ? {
@@ -120,6 +132,11 @@ const PatientAppointmentHistoryTab: React.FC<PatientAppointmentHistoryTabProps> 
               specialty: doctorObj.role === "doctor" ? "General Medicine" : doctorObj.role,
             }
           : apt.doctor,
+        nurse: nurseObj
+          ? {
+              name: `${nurseObj.first_name || ""} ${nurseObj.last_name || ""}`.trim(),
+            }
+          : apt.nurse,
       };
     });
   }, [data]);
